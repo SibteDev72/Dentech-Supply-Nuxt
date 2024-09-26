@@ -1,3 +1,3 @@
 <template>
-  <h1 class="text-xl font-bold underline">Hello world!</h1>
+  <h1 class="text-xl font-bold underline">Dentech Supply</h1>
 </template>
