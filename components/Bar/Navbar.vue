@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed bg-white w-full flex flex-col">
+  <div class="z-[100] shadow-lg fixed bg-white w-full flex flex-col">
     <div
       class="h-[70px] px-16 bg-[#F5F5F5] flex flex-row items-center justify-between"
     >
@@ -38,7 +38,7 @@
         <p class="text-lg font-bold ml-2">+92 123 456 7890</p>
       </div>
       <button
-        class="px-12 text-md py-2 border-2 border-[#3EBBA4] rounded-full hover:text-white hover:bg-[#3EBBA4]"
+        class="px-12 text-md shadow-lg py-1 border-2 border-[#3EBBA4] rounded-full hover:text-white hover:bg-[#3EBBA4] transition-colors duration-300"
       >
         Call us
       </button>
