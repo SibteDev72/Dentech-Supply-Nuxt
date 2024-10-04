@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[192px] w-full min-h-[calc(100vh-192px)] flex flex-col">
+  <div class="mt-[192px] w-full min-h-[100vh] flex flex-col">
     <section
       :style="`background-image: url('${imgSrc}')`"
       class="px-8 py-6 bg-cover h-[calc(100vh-192px)] flex flex-col justify-between"
@@ -55,7 +55,7 @@
     </section>
     <section
       style="background-image: url('/new/images/servicesPoster.png')"
-      class="bg-cover min-h-[calc(100vh-192px)] flex flex-col justify-center gap-12 px-10"
+      class="bg-cover min-h-[calc(100vh-70px)] flex flex-col justify-center gap-12 px-10"
     >
       <p class="text-white text-2xl font-bold">
         Advantages of working with General Dental

@@ -1,5 +1,5 @@
 <template>
-  <div class="z-[100] shadow-lg fixed bg-white w-full flex flex-col">
+  <div :class="`z-50 fixed shadow-lg bg-white w-full flex flex-col`">
     <div
       class="h-[70px] px-16 bg-[#F5F5F5] flex flex-row items-center justify-between"
     >
@@ -28,7 +28,11 @@
         </div>
       </div>
     </div>
-    <div class="h-[122px] flex flex-row justify-evenly items-center">
+    <div
+      :class="`${
+        scrollPosition > 112 && 'hidden'
+      } h-[122px] flex flex-row justify-evenly items-center`"
+    >
       <div class="flex flex-row gap-2 items-center leading-tight">
         <img class="w-14" src="/new/icons/logo.png" />
         <div class="border-l-2 border-[#3EBBA4] flex flex-col pl-2">
@@ -61,4 +65,13 @@
 
 <script setup lang="ts">
 import { navLinks } from "~/constant/data";
+const scrollPosition: any = ref(window);
+
+onMounted(() => {
+  const handleScroll = () => {
+    scrollPosition.value = window.scrollY;
+    console.log(scrollPosition.value);
+  };
+  window.addEventListener("scroll", handleScroll);
+});
 </script>
