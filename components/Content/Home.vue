@@ -1,5 +1,8 @@
 <template>
-  <div class="mt-[192px] w-full min-h-[100vh] flex flex-col">
+  <div
+    id="home"
+    class="mt-[192px] w-full min-h-[calc(100vh-192px)] flex flex-col"
+  >
     <section
       :style="`background-image: url('${imgSrc}')`"
       class="px-8 py-6 bg-cover h-[calc(100vh-192px)] flex flex-col justify-between"

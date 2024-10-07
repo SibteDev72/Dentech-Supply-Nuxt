@@ -1,5 +1,5 @@
 <template>
-  <div :class="`z-50 fixed shadow-lg bg-white w-full flex flex-col`">
+  <div :class="`z-[200] fixed shadow-lg bg-white w-full flex flex-col`">
     <div
       class="h-[70px] px-16 bg-[#F5F5F5] flex flex-row items-center justify-between"
     >
