@@ -31,10 +31,10 @@
           "
           v-for="(url, index) in urls"
           :key="index"
-          :class="`rounded-full cursor-pointer ${
+          :class="`rounded-full cursor-pointer w-[10px] h-[10px]  ${
             currentPos === index
-              ? 'bg-[#3EBBA4] w-[14px] h-[14px]'
-              : 'bg-white w-[10px] h-[10px]'
+              ? 'bg-[#3EBBA4] scale-150 transition-all duration-300 '
+              : 'bg-white '
           }`"
         />
       </div>
@@ -57,8 +57,7 @@
       </article>
     </section>
     <section
-      style="background-image: url('/new/images/servicesPoster.png')"
-      class="bg-cover min-h-[calc(100vh-70px)] flex flex-col justify-center gap-12 px-10"
+      class="bg-cover bg-[url('/new/images/servicesPoster.png')] min-h-[calc(100vh-70px)] flex flex-col justify-center gap-12 px-10"
     >
       <p class="text-white text-2xl font-bold">
         Advantages of working with General Dental
