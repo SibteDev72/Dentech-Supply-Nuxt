@@ -53,7 +53,7 @@ export const newProducts: ProductItem[] = [
 export const services: ServiceItem[] = [
   {
     id: 1,
-    imgSrc: "categories.pngdelivery.png",
+    imgSrc: "delivery.png",
     title: "Fast Delivery",
     text: "When it comes to fast delivery, think of it as dental supplies arriving at your doorstep...",
   },
