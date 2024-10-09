@@ -1,7 +1,7 @@
 <template>
-  <div :class="`z-[200] fixed shadow-lg bg-white w-full flex flex-col`">
-    <div
-      class="h-[70px] px-16 bg-[#F5F5F5] flex flex-row items-center justify-between"
+  <div :class="`z-[200] fixed shadow-lg bg-bgPrimary w-full flex flex-col`">
+    <section
+      class="h-[70px] px-16 bg-bgSecondary flex flex-row items-center justify-between"
     >
       <div class="flex-1 flex justify-center">
         <div class="flex flex-row gap-12">
@@ -27,29 +27,29 @@
           </NuxtLink>
         </div>
       </div>
-    </div>
-    <div
+    </section>
+    <section
       :class="`${
-        scrollPosition > 112 && 'hidden'
+        scrollPosition > 112 && 'hidden transition-all duration-300'
       } h-[122px] flex flex-row justify-evenly items-center`"
     >
       <div class="flex flex-row gap-2 items-center leading-tight">
         <img class="w-14" src="/new/icons/logo.png" />
-        <div class="border-l-2 border-[#3EBBA4] flex flex-col pl-2">
+        <div class="border-l-2 border-borderPrimary flex flex-col pl-2">
           <p class="text-[33px] font-extrabold">Dental Supply</p>
-          <p class="text-sm text-[#3EBBA4]">your supply destination</p>
+          <p class="text-sm text-textColor4">your supply destination</p>
         </div>
         <p class="text-lg font-bold ml-2">+92 123 456 7890</p>
       </div>
       <button
-        class="px-12 text-md shadow-lg py-1 border-2 border-[#3EBBA4] rounded-full hover:text-white hover:bg-[#3EBBA4] transition-colors duration-300"
+        class="px-12 text-md shadow-lg py-1 border-2 border-borderPrimary rounded-full hover:text-white hover:bg-buttonHover transition-colors duration-300"
       >
         Call us
       </button>
       <div class="flex flex-row items-center">
         <InputsSearch />
         <button
-          class="ml-[-30px] flex flex-col justify-center items-center rounded-[100%] w-[56px] h-[56px] bg-[#3EBBA4]"
+          class="ml-[-30px] flex flex-col justify-center items-center rounded-[100%] w-[56px] h-[56px] bg-buttonSecondary"
         >
           <img class="w-7" src="/new/icons/cart.png" />
         </button>
@@ -59,7 +59,7 @@
           2
         </p>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 

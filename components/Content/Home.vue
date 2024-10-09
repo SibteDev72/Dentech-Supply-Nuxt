@@ -7,17 +7,19 @@
       :style="`background-image: url('${imgSrc}')`"
       class="px-8 py-6 bg-cover h-[calc(100vh-192px)] flex flex-col justify-between"
     >
-      <p class="w-[40vw] mt-6 text-white text-5xl font-extrabold">
+      <p class="w-[40vw] mt-6 text-textColor5 text-5xl font-extrabold">
         Dental materials of highest quality
       </p>
-      <p class="w-[40vw] mt-10 text-white text-sm">
+      <p class="w-[40vw] mt-10 text-textColor5 text-sm">
         At Dentech Supply, we’re passionate about elevating oral health. Whether
         you’re a seasoned dentist, a dental student, or a dental enthusiast,
         we’ve got your back. Explore our extensive range of high-quality dental
         supplies, from cutting-edge instruments to comfortable patient chairs.
       </p>
       <div class="mt-6 flex flex-row text-center">
-        <button class="px-10 text-lg py-1 rounded-full text-white bg-[#3EBBA4]">
+        <button
+          class="px-10 text-lg py-1 rounded-full text-textColor5 bg-buttonSecondary"
+        >
           Call us
         </button>
       </div>
@@ -33,8 +35,8 @@
           :key="index"
           :class="`rounded-full cursor-pointer w-[10px] h-[10px]  ${
             currentPos === index
-              ? 'bg-[#3EBBA4] scale-150 transition-all duration-300 '
-              : 'bg-white '
+              ? 'bg-bgColor3 scale-150 transition-all duration-300 '
+              : 'bg-bgPrimary'
           }`"
         />
       </div>
@@ -43,7 +45,7 @@
       <div class="flex flex-row justify-between">
         <p class="text-3xl font-extrabold">New Products</p>
         <button
-          class="flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 text-sm py-2 rounded-full bg-white border-2 border-[#3EBBA4]"
+          class="flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 text-sm py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary"
         >
           See more <img class="" src="/new/icons/forwardArrow.png" />
         </button>
@@ -59,7 +61,7 @@
     <section
       class="bg-cover bg-[url('/new/images/servicesPoster.png')] min-h-[calc(100vh-70px)] flex flex-col justify-center gap-12 px-10"
     >
-      <p class="text-white text-2xl font-bold">
+      <p class="text-textColor5 text-2xl font-bold">
         Advantages of working with General Dental
       </p>
       <article class="grid grid-cols-4 gap-6">
@@ -99,6 +101,6 @@ onMounted(() => {
   setInterval(() => {
     currentPos.value += 1;
     imgSrc.value = urls.value[currentPos.value];
-  }, 12000);
+  }, 8000);
 });
 </script>

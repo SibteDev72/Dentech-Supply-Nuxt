@@ -5,16 +5,16 @@
       src="/new/images/aboutPoster.png"
     />
     <div
-      class="w-full h-fit bg-[#F5F5F5] pl-[15rem] pr-8 py-[8rem] flex flex-col gap-4"
+      class="w-full h-fit bg-bgSecondary pl-[15rem] pr-8 py-[8rem] flex flex-col gap-4"
     >
       <p class="text-2xl font-extrabold">About us</p>
-      <p class="text-sm text-[#6B6B6B]">
+      <p class="text-sm text-textColor3">
         Welcome to Dentech Supply—the beating heart of dental precision. As
         ardent advocates for oral well-being, we’ve meticulously curated an
         extensive array of top-tier dental products, all meticulously designed
         to elevate your practice. Here’s why Dentech Supply shines:
       </p>
-      <ul class="list-decimal list-inside text-sm text-[#6B6B6B]">
+      <ul class="list-decimal list-inside text-sm text-textColor3">
         <li>
           Proven Excellence: Our unwavering commitment to quality sets us apart.
           Dentech Supply delivers reliable dental materials, cutting-edge
@@ -38,7 +38,7 @@
           loop.
         </li>
       </ul>
-      <p class="text-sm text-[#6B6B6B]">
+      <p class="text-sm text-textColor3">
         At Dentech Supply, we’re not merely a store; we’re your personal dental
         confidantes. Let’s sculpt healthier smiles together!
       </p>
