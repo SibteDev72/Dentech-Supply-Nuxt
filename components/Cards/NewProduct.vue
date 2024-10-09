@@ -4,23 +4,25 @@
   >
     <div class="relative flex flex-col gap-4 items-center">
       <p
-        class="absolute px-4 py-1 font-bold top-0 left-0 text-white bg-[#3EBBA4]"
+        class="absolute px-4 py-1 font-bold top-0 left-0 text-textColor5 bg-bgColor3"
       >
         New
       </p>
       <img class="w-[20rem]" :src="`/new/images/${props.data.imgSrc}`" />
-      <p class="text-[#B5B5B5] text-md">Artical :{{ props.data.artical }}</p>
+      <p class="text-textSecondary text-md">
+        Artical :{{ props.data.artical }}
+      </p>
       <p class="text-lg font-extrabold text-center">
         {{ props.data.title }}
       </p>
     </div>
     <button
-      class="px-6 shadow-lg text-md py-1 border-2 border-[#3EBBA4] rounded-full hover:text-white hover:bg-[#3EBBA4] transition-colors duration-300"
+      class="px-6 shadow-lg text-md py-1 border-2 border-borderPrimary rounded-full hover:text-textColor5 hover:bg-buttonHover transition-colors duration-300"
     >
       Into Basket
     </button>
     <button
-      class="absolute top-32 flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-sm py-2 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+      class="absolute top-32 flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-sm py-2 rounded-full bg-bgPrimary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
     >
       More Details <img src="/new/icons/forwardArrow.png" />
     </button>

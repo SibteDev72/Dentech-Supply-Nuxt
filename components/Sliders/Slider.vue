@@ -6,27 +6,34 @@
         <button
           v-if="props.data.variant === 'category'"
           @click="sliderInstance?.prev()"
-          class="bg-[#3EBBA4] w-12 h-12 rounded-[100%] shadow-xl text-white"
+          class="bg-buttonSecondary w-12 h-12 rounded-[100%] shadow-xl text-textColor5"
         >
           <
         </button>
         <button
           v-if="props.data.variant === 'category'"
           @click="sliderInstance?.next()"
-          class="bg-[#3EBBA4] w-12 h-12 rounded-[100%] shadow-xl text-white"
+          class="bg-buttonSecondary w-12 h-12 rounded-[100%] shadow-xl text-textColor5"
         >
           >
         </button>
       </div>
-      <!-- <button class="bg-gray-200 text-black px-4 py-2">
-        View All Categories
-      </button> -->
+      <button
+        :class="`${
+          props.data.variant === 'brand'
+            ? 'hidden'
+            : 'w-fit h-fit flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 py-2 text-sm rounded-full bg-bgPrimary'
+        }`"
+      >
+        view all categories <img class="" src="/new/icons/forwardArrow.png" />
+      </button>
     </section>
+
     <section class="relative">
       <button
         v-if="props.data.variant === 'brand'"
         @click="sliderInstance?.prev()"
-        class="z-50 absolute top-1/2 transform -translate-y-1/2 left-[-20px] bg-[#3EBBA4] w-12 h-12 rounded-[100%] shadow-xl text-white"
+        class="z-50 absolute top-1/2 transform -translate-y-1/2 left-[-20px] bg-buttonSecondary w-12 h-12 rounded-[100%] shadow-xl text-textColor5"
       >
         <
       </button>
@@ -41,7 +48,7 @@
       <button
         v-if="props.data.variant === 'brand'"
         @click="sliderInstance?.next()"
-        class="z-50 absolute top-1/2 transform -translate-y-1/2 right-[-20px] bg-[#3EBBA4] w-12 h-12 rounded-[100%] shadow-xl text-white"
+        class="z-50 absolute top-1/2 transform -translate-y-1/2 right-[-20px] bg-buttonSecondary w-12 h-12 rounded-[100%] shadow-xl text-textColor5"
       >
         >
       </button>
