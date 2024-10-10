@@ -22,7 +22,7 @@ export const navLinks: navLinkInterface[] = [
   {
     id: 4,
     title: "contact us",
-    path: "/#",
+    path: "/contact",
   },
 ];
 export const newProducts: ProductItem[] = [

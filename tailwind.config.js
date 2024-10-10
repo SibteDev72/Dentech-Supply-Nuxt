@@ -44,6 +44,15 @@ module.exports = {
         bgColor3: {
           DEFAULT: "#3EBBA4",
         },
+        bgColor4: {
+          DEFAULT: "#F7F8FC",
+        },
+        bgColor5: {
+          DEFAULT: "#FDFDFD",
+        },
+        bgColor6: {
+          DEFAULT: "#C5FFF4",
+        },
         textPrimary: {
           DEFAULT: "#001435",
         },
