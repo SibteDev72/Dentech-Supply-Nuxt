@@ -6,13 +6,6 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: "Dentech Supply",
-      link: [
-        {
-          rel: "icon",
-          type: "image/x-icon",
-          href: "/new/icons/logo.png",
-        },
-      ],
     },
   },
 
