@@ -1,27 +1,28 @@
 import type { navLinkInterface } from "~/types/NavLink";
 import type { ProductItem, CategoryItem, BrandItem } from "~/types/Products";
 import type { ServiceItem } from "~/types/Services";
+import type { aboutPointInteface } from "~/types/About";
 
 export const navLinks: navLinkInterface[] = [
   {
     id: 1,
     title: "home",
-    hash: "#home",
+    path: "/",
   },
   {
     id: 2,
     title: "categories",
-    hash: "#categories",
+    path: "/#",
   },
   {
     id: 3,
     title: "about us",
-    hash: "#aboutUs",
+    path: "/about",
   },
   {
     id: 4,
     title: "contact us",
-    hash: "#contactUs",
+    path: "/#",
   },
 ];
 export const newProducts: ProductItem[] = [
@@ -152,7 +153,6 @@ export const categories: CategoryItem[] = [
     title: "Export Items",
   },
 ];
-
 export const brands: BrandItem[] = [
   {
     id: 1,
@@ -283,5 +283,42 @@ export const brands: BrandItem[] = [
     id: 26,
     title: "Citisen",
     icon: "Citisen.png",
+  },
+];
+export const aboutPoints: aboutPointInteface[] = [
+  {
+    id: 1,
+    imgSrc: "aboutPoint1.png",
+    title: "Our Journey: From Smiles to Precision",
+    text: "At Dentech Supply, we’re more than just a dental supply company—we’re your partners in precision dentistry. Our journey began with a simple vision: to elevate oral health practices across Pakistan. Here’s how we’ve turned that vision into reality:",
+  },
+  {
+    id: 2,
+    imgSrc: "aboutPoint2.png",
+    title: "Our Guiding Principles",
+    points: [
+      "Precision: Dentistry is an art, and precision is our brushstroke. From handpicked materials to state-of-the-art equipment, we believe in delivering excellence down to the last detail.",
+      "Community: Dentech Supply isn’t just a business; it’s a community. We’re here to support dentists, hygienists, and technicians—the unsung heroes behind every confident smile.",
+      "Innovation: The dental field evolves, and so do we. Our catalog features global brands and local gems, all rigorously tested to meet the highest standards.",
+    ],
+  },
+  {
+    id: 3,
+    imgSrc: "aboutPoint3.png",
+    title: "What Sets Us Apart",
+    points: [
+      "Local Roots, Global Reach: Based in Lahore, Dentech Supply proudly serves the Pakistani dental community. But our reach extends beyond borders—we source products from trusted manufacturers worldwide.",
+      "Expert Guidance: Need advice on choosing the right instruments? Our team of experienced dental professionals is just a call away. We’ve been there, probed that!",
+      "Swift Delivery: Time matters in dentistry. That’s why Dentech Supply ensures lightning-fast delivery to your clinic. We’re faster than a curing light setting composite resin!",
+    ],
+  },
+  {
+    id: 4,
+    imgSrc: "aboutPoint4.png",
+    title: "Join Our Journey",
+    points: [
+      "Whether you’re a seasoned dentist or a fresh graduate, Dentech Supply invites you to be part of our story. Explore our catalog, connect with us on social media, and let’s create healthier smiles together.",
+      "Remember, at Dentech Supply, precision isn’t just a promise—it’s our heartbeat.",
+    ],
   },
 ];

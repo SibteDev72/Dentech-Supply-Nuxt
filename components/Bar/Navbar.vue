@@ -1,14 +1,17 @@
 <template>
   <div :class="`z-[200] fixed shadow-lg bg-bgPrimary w-full flex flex-col`">
+    <BarMobileNavbar />
     <section
-      class="h-[70px] px-16 bg-bgSecondary flex flex-row items-center justify-between"
+      class="hidden h-[70px] px-16 bg-bgSecondary lg:flex flex-row items-center justify-between"
     >
-      <div class="flex-1 flex justify-center">
+      <div class="hidden lg:flex flex-1 justify-center">
         <div class="flex flex-row gap-12">
           <div v-for="(link, index) in navLinks" :key="index">
             <NuxtLink
-              class="capitalize text-sm cursor-pointer"
-              :to="{ path: '/', hash: link.hash }"
+              :class="`${
+                path.fullPath === link.path && 'text-textColor4'
+              } capitalize text-sm cursor-pointer`"
+              :to="link.path"
             >
               {{ link.title }}
             </NuxtLink>
@@ -16,7 +19,7 @@
         </div>
       </div>
 
-      <div class="flex-none flex flex-row gap-2">
+      <div class="hidden lg:flex flex-none flex-row gap-2">
         <img class="w-5" src="/new/icons/user.png" />
         <div class="flex flex-row items-center">
           <NuxtLink class="border-r-2 px-1 text-xs border-black" to="#"
@@ -30,8 +33,8 @@
     </section>
     <section
       :class="`${
-        scrollPosition > 112 && 'hidden transition-all duration-300'
-      } h-[122px] flex flex-row justify-evenly items-center`"
+        scrollPosition > 112 && 'lg:hidden'
+      } hidden h-[122px] lg:flex flex-row justify-evenly items-center`"
     >
       <div class="flex flex-row gap-2 items-center leading-tight">
         <img class="w-14" src="/new/icons/logo.png" />
@@ -66,11 +69,11 @@
 <script setup lang="ts">
 import { navLinks } from "~/constant/data";
 const scrollPosition: any = ref(window);
+const path = useRoute();
 
 onMounted(() => {
   const handleScroll = () => {
     scrollPosition.value = window.scrollY;
-    console.log(scrollPosition.value);
   };
   window.addEventListener("scroll", handleScroll);
 });

@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-row items-center shadow-xl">
     <img
-      class="w-[138px] rounded-lg"
+      class="w-[80px] rounded-lg"
       :src="`/new/images/${props.data.imgSrc}`"
     />
-    <p class="font-primary font-extrabold text-lg ml-4">
+    <p class="font-primary font-extrabold text-[12px] md:text-sm ml-2 md:ml-4">
       {{ props.data.title }}
     </p>
   </div>

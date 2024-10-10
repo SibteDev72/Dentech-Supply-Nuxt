@@ -4,7 +4,7 @@
     class="w-full min-h-[60vh] bg-bgSecondary flex flex-col justify-between items-center"
   >
     <section
-      class="px-16 py-[4rem] w-full grid grid-cols-4 gap-[2rem] place-items-start"
+      class="px-6 md:px-8 lg:px-[4rem] py-[4rem] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[2rem] place-items-start"
     >
       <div class="flex flex-col items-start">
         <div class="flex flex-row gap-2 items-center">
@@ -37,10 +37,7 @@
           class="flex flex-col gap-2 items-start mt-4 text-textSecondary text-sm"
         >
           <div v-for="(link, index) in navLinks" :key="index">
-            <NuxtLink
-              class="capitalize cursor-pointer"
-              :to="{ path: '/', hash: link.hash }"
-            >
+            <NuxtLink class="capitalize cursor-pointer" :to="link.path">
               {{ link.title }}
             </NuxtLink>
           </div>
@@ -64,7 +61,7 @@
           class="flex flex-col gap-2 items-start mt-4 text-textSecondary text-sm"
         >
           <p>Privacy Policy</p>
-          <p>Contact Us</p>
+          <NuxtLink to="#">Contact Us</NuxtLink>
           <p>Shop</p>
           <p>Facebook</p>
           <p>Instagram</p>
@@ -72,12 +69,15 @@
       </div>
     </section>
     <section
-      class="w-full flex flex-row justify-between items-center px-16 py-4 border-t-2 border-borderSecondary"
+      class="w-full flex flex-row justify-center sm:justify-between items-center px-6 md:px-8 lg:px-[4rem] py-4 border-t-2 border-borderSecondary"
     >
-      <p class="text-sm text-textSecondary">
+      <p class="text-[8px] sm:text-[10px] md:text-sm text-textSecondary">
         Copyright © 2024 Humayun Dental. All rights reserved.
       </p>
-      <img class="w-[220px]" src="/new/icons/footerIcon.png" />
+      <img
+        class="hidden sm:flex w-[180px] md:w-[220px]"
+        src="/new/icons/footerIcon.png"
+      />
     </section>
   </div>
 </template>

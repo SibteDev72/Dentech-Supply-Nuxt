@@ -1,7 +1,7 @@
 <template>
   <div
     id="categories"
-    class="w-full min-h-[100vh] flex flex-col gap-16 justify-center items-center"
+    class="w-full h-fit flex flex-col gap-16 items-center py-[4rem] px-6 md:px-8 lg:px-[4rem]"
   >
     <SlidersSlider :data="{ name: 'Product Categories', variant: 'category' }">
       <CardsCategory
