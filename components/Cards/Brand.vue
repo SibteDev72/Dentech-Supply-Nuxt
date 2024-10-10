@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-row items-center justify-center">
-    <img class="w-[138px] rounded-lg" :src="`/new/brands/${props.data.icon}`" />
+    <img
+      class="w-[180px] sm:w-[150px] md:w-[130px] rounded-lg"
+      :src="`/new/brands/${props.data.icon}`"
+    />
   </div>
 </template>
 
