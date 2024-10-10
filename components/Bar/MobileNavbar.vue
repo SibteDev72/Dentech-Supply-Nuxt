@@ -52,6 +52,11 @@
       </div>
       <div v-for="(link, index) in navLinks" :key="index">
         <NuxtLink
+          @click="
+            () => {
+              navStatus = !navStatus;
+            }
+          "
           :class="`${
             path.fullPath === link.path && 'text-textColor4'
           } capitalize text-sm cursor-pointer`"
@@ -62,13 +67,13 @@
       </div>
     </div>
 
-    <div class="flex flex-row gap-2 items-center leading-tight">
+    <NuxtLink to="/" class="flex flex-row gap-2 items-center leading-tight">
       <img class="w-6" src="/new/icons/logo.png" />
       <div class="border-l-2 border-borderPrimary flex flex-col pl-2">
         <p class="text-[14px] font-extrabold">Dental Supply</p>
         <p class="text-[10px] text-textColor4">your supply destination</p>
       </div>
-    </div>
+    </NuxtLink>
 
     <div class="flex flex-row gap-3">
       <img
