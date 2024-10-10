@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mt-[96px] w-full min-h-[calc(100vh-96px)] flex flex-col lg:mt-[192px] lg:min-h-[calc(100vh-192px)]"
+    class="mt-[96px] lg:mt-[192px] w-full min-h-[calc(100vh-96px)] lg:min-h-[calc(100vh-192px)] flex flex-col"
   >
     <section
       :style="`background-image: url('${imgSrc}')`"
