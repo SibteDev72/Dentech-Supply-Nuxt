@@ -140,7 +140,7 @@ const form = reactive({
   message: "",
 });
 const handleSubmit = () => {
-  console.log(form);
+  console.table(form);
   // form.name = "";
   // form.company = "";
   // form.phone = "";

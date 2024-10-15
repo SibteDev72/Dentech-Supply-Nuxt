@@ -5,11 +5,16 @@ export type ProductItem = {
   title: string;
 };
 
+export type SubCategoryItemn = {
+  id: number;
+  title: string;
+};
+
 export type CategoryItem = {
   id: number;
   imgSrc: string;
   title: string;
-  subCategory?: string[];
+  subCategory?: SubCategoryItemn[];
 };
 
 export type BrandItem = {

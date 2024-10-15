@@ -9,7 +9,7 @@
           <div v-for="(link, index) in navLinks" :key="index">
             <NuxtLink
               :class="`${
-                path.fullPath === link.path && 'text-textColor4'
+                path.name === link.name && 'text-textColor4'
               } capitalize text-sm cursor-pointer`"
               :to="link.path"
             >
@@ -34,21 +34,16 @@
     <section
       :class="`${
         scrollPosition > 112 && 'lg:hidden'
-      } hidden h-[122px] lg:flex flex-row justify-evenly items-center`"
+      } hidden h-[122px] lg:flex flex-row justify-between px-16 items-center`"
     >
       <div class="flex flex-row gap-2 items-center leading-tight">
         <img class="w-14" src="/new/icons/logo.png" />
         <div class="border-l-2 border-borderPrimary flex flex-col pl-2">
-          <p class="text-[33px] font-extrabold">Dental Supply</p>
+          <p class="text-[33px] font-extrabold">Dentech Supply</p>
           <p class="text-sm text-textColor4">your supply destination</p>
         </div>
-        <p class="text-lg font-bold ml-2">+92 123 456 7890</p>
       </div>
-      <button
-        class="px-12 text-md shadow-lg py-1 border-2 border-borderPrimary rounded-full hover:text-white hover:bg-buttonHover transition-colors duration-300"
-      >
-        Call us
-      </button>
+
       <div class="flex flex-row items-center">
         <InputsSearch />
         <button
@@ -70,6 +65,10 @@
 import { navLinks } from "~/constant/data";
 const scrollPosition: any = ref(window);
 const path = useRoute();
+
+onUpdated(() => {
+  console.log(path.name);
+});
 
 onMounted(() => {
   const handleScroll = () => {
