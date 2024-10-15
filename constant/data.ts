@@ -1,54 +1,37 @@
 import type { navLinkInterface } from "~/types/NavLink";
-import type { ProductItem, CategoryItem, BrandItem } from "~/types/Products";
+import type {
+  ProductItem,
+  SubCategoryItemn,
+  CategoryItem,
+  BrandItem,
+} from "~/types/Products";
 import type { ServiceItem } from "~/types/Services";
 import type { aboutPointInteface } from "~/types/About";
 
 export const navLinks: navLinkInterface[] = [
   {
     id: 1,
+    name: "index",
     title: "home",
     path: "/",
   },
   {
     id: 2,
+    name: "Shop-category",
     title: "categories",
-    path: "/#",
+    path: "/Shop/Equipment",
   },
   {
     id: 3,
+    name: "About",
     title: "about us",
     path: "/about",
   },
   {
     id: 4,
+    name: "Contact",
     title: "contact us",
     path: "/contact",
-  },
-];
-export const newProducts: ProductItem[] = [
-  {
-    id: 1,
-    imgSrc: "NewProduct.png",
-    artical: "01010",
-    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
-  },
-  {
-    id: 2,
-    imgSrc: "NewProduct.png",
-    artical: "01010",
-    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
-  },
-  {
-    id: 3,
-    imgSrc: "NewProduct.png",
-    artical: "01010",
-    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
-  },
-  {
-    id: 4,
-    imgSrc: "NewProduct.png",
-    artical: "01010",
-    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
   },
 ];
 export const services: ServiceItem[] = [
@@ -77,21 +60,220 @@ export const services: ServiceItem[] = [
     text: "Our return customers are like the reliable instruments in a well-stocked dental kit",
   },
 ];
+export const subCategories: SubCategoryItemn[] = [
+  {
+    id: 1,
+    title: "Autoclave",
+  },
+  {
+    id: 2,
+    title: "Adhesive",
+  },
+  {
+    id: 3,
+    title: "Carbide Burs",
+  },
+  {
+    id: 4,
+    title: "Dental Amalgamator",
+  },
+  {
+    id: 5,
+    title: "Digital System and Intra Oral Camera",
+  },
+  {
+    id: 6,
+    title: "Disposable Surgical",
+  },
+  {
+    id: 7,
+    title: "Disinfectant",
+  },
+  {
+    id: 8,
+    title: "Diamond Burs",
+  },
+  {
+    id: 9,
+    title: "Endodontics",
+  },
+  {
+    id: 10,
+    title: "Endo Motor & Apex Locator",
+  },
+  {
+    id: 11,
+    title: "Equipment",
+  },
+  {
+    id: 12,
+    title: "Hand Piece",
+  },
+  {
+    id: 13,
+    title: "Impression",
+  },
+  {
+    id: 14,
+    title: "Implant & Surgery",
+  },
+  {
+    id: 15,
+    title: "Light Cure",
+  },
+  {
+    id: 16,
+    title: "Materials",
+  },
+  {
+    id: 17,
+    title: "Orthodontics",
+  },
+  {
+    id: 18,
+    title: "Ortho-Dontics Instruments",
+  },
+  {
+    id: 19,
+    title: "Operative & Surgical Instruments",
+  },
+  {
+    id: 20,
+    title: "Periodontal",
+  },
+  {
+    id: 21,
+    title: "Preventive",
+  },
+  {
+    id: 22,
+    title: "RVG Sensor",
+  },
+  {
+    id: 23,
+    title: "Restorative & Lutting",
+  },
+  {
+    id: 24,
+    title: "Ultrasonic Scaler",
+  },
+];
+export const Products: ProductItem[] = [
+  {
+    id: 1,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 2,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 3,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 4,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 5,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 6,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 7,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 8,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 9,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 10,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 11,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+  {
+    id: 12,
+    imgSrc: "NewProduct.png",
+    artical: "01010",
+    title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
+  },
+];
 export const categories: CategoryItem[] = [
   {
     id: 1,
     imgSrc: "categories.png",
     title: "Equipment",
     subCategory: [
-      "Autoclave",
-      "Dental Amalgamator",
-      "Digital System and Intra Oral Camera",
-      "Endo Motor & Apex Locator",
-      "Hand Piece",
-      "Implant & Surgery",
-      "Light Cure",
-      "RVG Sensor",
-      "Ultrasonic Scaler",
+      {
+        id: 1,
+        title: "Autoclave",
+      },
+      {
+        id: 4,
+        title: "Dental Amalgamator",
+      },
+      {
+        id: 5,
+        title: "Digital System and Intra Oral Camera",
+      },
+      {
+        id: 10,
+        title: "Endo Motor & Apex Locator",
+      },
+      {
+        id: 12,
+        title: "Hand Piece",
+      },
+      {
+        id: 14,
+        title: "Implant & Surgery",
+      },
+      {
+        id: 15,
+        title: "Light Cure",
+      },
+      {
+        id: 21,
+        title: "RVG Sensor",
+      },
+      {
+        id: 23,
+        title: "Ultrasonic Scaler",
+      },
     ],
   },
   {
@@ -99,16 +281,42 @@ export const categories: CategoryItem[] = [
     imgSrc: "categories.png",
     title: "Materials",
     subCategory: [
-      "Adhesive",
-      "Disposable Surgical",
-      "Disinfectant",
-      "Endodontics",
-      "Impression",
-      "Orthodontics",
-      "Periodontal",
-      "Preventive",
-      "Restorative & Lutting",
-      "Others",
+      {
+        id: 2,
+        title: "Adhesive",
+      },
+      {
+        id: 6,
+        title: "Disposable Surgical",
+      },
+      {
+        id: 7,
+        title: "Disinfectant",
+      },
+      {
+        id: 9,
+        title: "Endodontics",
+      },
+      {
+        id: 13,
+        title: "Impression",
+      },
+      {
+        id: 16,
+        title: "Orthodontics",
+      },
+      {
+        id: 19,
+        title: "Periodontal",
+      },
+      {
+        id: 20,
+        title: "Preventive",
+      },
+      {
+        id: 22,
+        title: "Restorative & Lutting",
+      },
     ],
   },
   {
@@ -120,7 +328,17 @@ export const categories: CategoryItem[] = [
     id: 4,
     imgSrc: "categories.png",
     title: "Lab",
-    subCategory: ["Equipment", "Materials"],
+    subCategory: [
+      {
+        id: 11,
+        title: "Equipment",
+      },
+
+      {
+        id: 16,
+        title: "Materials",
+      },
+    ],
   },
   {
     id: 5,
@@ -132,8 +350,14 @@ export const categories: CategoryItem[] = [
     imgSrc: "categories.png",
     title: "Dental Instruments",
     subCategory: [
-      "Ortho-Dontics Instruments",
-      "Operative & Surgical Instruments",
+      {
+        id: 18,
+        title: "Ortho-Dontics Instruments",
+      },
+      {
+        id: 19,
+        title: "Operative & Surgical Instruments",
+      },
     ],
   },
   {
@@ -145,7 +369,16 @@ export const categories: CategoryItem[] = [
     id: 8,
     imgSrc: "categories.png",
     title: "Burs",
-    subCategory: ["Diamond Burs", "Carbide Burs"],
+    subCategory: [
+      {
+        id: 8,
+        title: "Diamond Burs",
+      },
+      {
+        id: 3,
+        title: "Carbide Burs",
+      },
+    ],
   },
   {
     id: 9,

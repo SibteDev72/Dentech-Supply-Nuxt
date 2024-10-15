@@ -12,7 +12,7 @@
           <div
             class="border-l-2 border-borderPrimary flex flex-col pl-2 leading-tight"
           >
-            <p class="text-2xl font-extrabold">Dental Supply</p>
+            <p class="text-2xl font-extrabold">Dentech Supply</p>
             <p class="text-sm text-textColor4">your supply destination</p>
           </div>
         </div>
@@ -23,7 +23,8 @@
             <img src="/new/icons/location.png" class="w-4 mr-3" />address: xyz
           </span>
           <span class="flex flex-row items-center">
-            <img src="/new/icons/phone.png" class="w-4 mr-3" />Phone: 010000000
+            <img src="/new/icons/phone.png" class="w-4 mr-3" />Phone: +92 123
+            456 7890
           </span>
           <span class="flex flex-row items-center">
             <img src="/new/icons/mail.png" class="w-4 mr-3" />Email: xyz

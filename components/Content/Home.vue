@@ -19,13 +19,13 @@
         we’ve got your back. Explore our extensive range of high-quality dental
         supplies, from cutting-edge instruments to comfortable patient chairs.
       </p>
-      <div class="hidden md:flex flex-row text-center lg:pb-[6rem]">
+      <!-- <div class="hidden md:flex flex-row text-center lg:pb-[6rem]">
         <button
           class="px-10 text-sm py-1 rounded-full text-textColor5 bg-buttonSecondary"
         >
           Call us
         </button>
-      </div>
+      </div> -->
       <div class="self-center w-fit flex flex-row gap-1 md:gap-2 items-center">
         <div
           @click="
@@ -48,6 +48,11 @@
       <div class="flex flex-row justify-between">
         <p class="text-lg lg:text-3xl font-extrabold">New Products</p>
         <button
+          @click="
+            () => {
+              router.push('/Shop/Equipment');
+            }
+          "
           class="flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 py-1 text-sm md:py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary"
         >
           See more <img class="" src="/new/icons/forwardArrow.png" />
@@ -56,8 +61,11 @@
       <article
         class="grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-4"
       >
-        <CardsNewProduct
-          v-for="(item, index) in newProducts"
+        <CardsProduct
+          v-for="(item, index) in Products.sort((a, b) => b.id - a.id).slice(
+            0,
+            4
+          )"
           :key="index"
           :data="item"
         />
@@ -84,7 +92,8 @@
 </template>
 
 <script setup lang="ts">
-import { newProducts, services } from "~/constant/data";
+import { Products, services } from "~/constant/data";
+const router = useRouter();
 const urls = ref([
   "/new/images/slider-pic-1.png",
   "/new/images/slider-pic-2.png",
