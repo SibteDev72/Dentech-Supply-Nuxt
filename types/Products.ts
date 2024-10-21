@@ -8,12 +8,14 @@ export type ProductItem = {
 export type SubCategoryItemn = {
   id: number;
   title: string;
+  slug: string;
 };
 
 export type CategoryItem = {
   id: number;
   imgSrc: string;
   title: string;
+  slug: string;
   subCategory?: SubCategoryItemn[];
 };
 

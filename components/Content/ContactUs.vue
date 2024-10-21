@@ -84,5 +84,6 @@
 </template>
 
 <script setup lang="ts">
-import { navLinks, categories } from "~/constant/data";
+import { navLinks } from "~/constant/data";
+const categories = useCategories();
 </script>

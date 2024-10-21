@@ -17,9 +17,9 @@ export const navLinks: navLinkInterface[] = [
   },
   {
     id: 2,
-    name: "Shop-category",
+    name: "Shop-category-subCategory",
     title: "categories",
-    path: "/Shop/Equipment",
+    path: "/Shop/burs",
   },
   {
     id: 3,
@@ -60,104 +60,104 @@ export const services: ServiceItem[] = [
     text: "Our return customers are like the reliable instruments in a well-stocked dental kit",
   },
 ];
-export const subCategories: SubCategoryItemn[] = [
-  {
-    id: 1,
-    title: "Autoclave",
-  },
-  {
-    id: 2,
-    title: "Adhesive",
-  },
-  {
-    id: 3,
-    title: "Carbide Burs",
-  },
-  {
-    id: 4,
-    title: "Dental Amalgamator",
-  },
-  {
-    id: 5,
-    title: "Digital System and Intra Oral Camera",
-  },
-  {
-    id: 6,
-    title: "Disposable Surgical",
-  },
-  {
-    id: 7,
-    title: "Disinfectant",
-  },
-  {
-    id: 8,
-    title: "Diamond Burs",
-  },
-  {
-    id: 9,
-    title: "Endodontics",
-  },
-  {
-    id: 10,
-    title: "Endo Motor & Apex Locator",
-  },
-  {
-    id: 11,
-    title: "Equipment",
-  },
-  {
-    id: 12,
-    title: "Hand Piece",
-  },
-  {
-    id: 13,
-    title: "Impression",
-  },
-  {
-    id: 14,
-    title: "Implant & Surgery",
-  },
-  {
-    id: 15,
-    title: "Light Cure",
-  },
-  {
-    id: 16,
-    title: "Materials",
-  },
-  {
-    id: 17,
-    title: "Orthodontics",
-  },
-  {
-    id: 18,
-    title: "Ortho-Dontics Instruments",
-  },
-  {
-    id: 19,
-    title: "Operative & Surgical Instruments",
-  },
-  {
-    id: 20,
-    title: "Periodontal",
-  },
-  {
-    id: 21,
-    title: "Preventive",
-  },
-  {
-    id: 22,
-    title: "RVG Sensor",
-  },
-  {
-    id: 23,
-    title: "Restorative & Lutting",
-  },
-  {
-    id: 24,
-    title: "Ultrasonic Scaler",
-  },
-];
+// export const subCategories: SubCategoryItemn[] = [
+//   {
+//     id: 1,
+//     title: "Autoclave",
+//   },
+//   {
+//     id: 2,
+//     title: "Adhesive",
+//   },
+//   {
+//     id: 3,
+//     title: "Carbide Burs",
+//   },
+//   {
+//     id: 4,
+//     title: "Dental Amalgamator",
+//   },
+//   {
+//     id: 5,
+//     title: "Digital System and Intra Oral Camera",
+//   },
+//   {
+//     id: 6,
+//     title: "Disposable Surgical",
+//   },
+//   {
+//     id: 7,
+//     title: "Disinfectant",
+//   },
+//   {
+//     id: 8,
+//     title: "Diamond Burs",
+//   },
+//   {
+//     id: 9,
+//     title: "Endodontics",
+//   },
+//   {
+//     id: 10,
+//     title: "Endo Motor & Apex Locator",
+//   },
+//   {
+//     id: 11,
+//     title: "Equipment",
+//   },
+//   {
+//     id: 12,
+//     title: "Hand Piece",
+//   },
+//   {
+//     id: 13,
+//     title: "Impression",
+//   },
+//   {
+//     id: 14,
+//     title: "Implant & Surgery",
+//   },
+//   {
+//     id: 15,
+//     title: "Light Cure",
+//   },
+//   {
+//     id: 16,
+//     title: "Materials",
+//   },
+//   {
+//     id: 17,
+//     title: "Orthodontics",
+//   },
+//   {
+//     id: 18,
+//     title: "Ortho-Dontics Instruments",
+//   },
+//   {
+//     id: 19,
+//     title: "Operative & Surgical Instruments",
+//   },
+//   {
+//     id: 20,
+//     title: "Periodontal",
+//   },
+//   {
+//     id: 21,
+//     title: "Preventive",
+//   },
+//   {
+//     id: 22,
+//     title: "RVG Sensor",
+//   },
+//   {
+//     id: 23,
+//     title: "Restorative & Lutting",
+//   },
+//   {
+//     id: 24,
+//     title: "Ultrasonic Scaler",
+//   },
+// ];
 export const Products: ProductItem[] = [
   {
     id: 1,
@@ -232,160 +232,160 @@ export const Products: ProductItem[] = [
     title: "Apple-Dental Air Turbine Hand-Piece (2/4 Hole)",
   },
 ];
-export const categories: CategoryItem[] = [
-  {
-    id: 1,
-    imgSrc: "categories.png",
-    title: "Equipment",
-    subCategory: [
-      {
-        id: 1,
-        title: "Autoclave",
-      },
-      {
-        id: 4,
-        title: "Dental Amalgamator",
-      },
-      {
-        id: 5,
-        title: "Digital System and Intra Oral Camera",
-      },
-      {
-        id: 10,
-        title: "Endo Motor & Apex Locator",
-      },
-      {
-        id: 12,
-        title: "Hand Piece",
-      },
-      {
-        id: 14,
-        title: "Implant & Surgery",
-      },
-      {
-        id: 15,
-        title: "Light Cure",
-      },
-      {
-        id: 21,
-        title: "RVG Sensor",
-      },
-      {
-        id: 23,
-        title: "Ultrasonic Scaler",
-      },
-    ],
-  },
-  {
-    id: 2,
-    imgSrc: "categories.png",
-    title: "Materials",
-    subCategory: [
-      {
-        id: 2,
-        title: "Adhesive",
-      },
-      {
-        id: 6,
-        title: "Disposable Surgical",
-      },
-      {
-        id: 7,
-        title: "Disinfectant",
-      },
-      {
-        id: 9,
-        title: "Endodontics",
-      },
-      {
-        id: 13,
-        title: "Impression",
-      },
-      {
-        id: 16,
-        title: "Orthodontics",
-      },
-      {
-        id: 19,
-        title: "Periodontal",
-      },
-      {
-        id: 20,
-        title: "Preventive",
-      },
-      {
-        id: 22,
-        title: "Restorative & Lutting",
-      },
-    ],
-  },
-  {
-    id: 3,
-    imgSrc: "categories.png",
-    title: "Dental Lasers",
-  },
-  {
-    id: 4,
-    imgSrc: "categories.png",
-    title: "Lab",
-    subCategory: [
-      {
-        id: 11,
-        title: "Equipment",
-      },
+// export const categories: CategoryItem[] = [
+//   {
+//     id: 1,
+//     imgSrc: "categories.png",
+//     title: "Equipment",
+//     subCategory: [
+//       {
+//         id: 1,
+//         title: "Autoclave",
+//       },
+//       {
+//         id: 4,
+//         title: "Dental Amalgamator",
+//       },
+//       {
+//         id: 5,
+//         title: "Digital System and Intra Oral Camera",
+//       },
+//       {
+//         id: 10,
+//         title: "Endo Motor & Apex Locator",
+//       },
+//       {
+//         id: 12,
+//         title: "Hand Piece",
+//       },
+//       {
+//         id: 14,
+//         title: "Implant & Surgery",
+//       },
+//       {
+//         id: 15,
+//         title: "Light Cure",
+//       },
+//       {
+//         id: 21,
+//         title: "RVG Sensor",
+//       },
+//       {
+//         id: 23,
+//         title: "Ultrasonic Scaler",
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     imgSrc: "categories.png",
+//     title: "Materials",
+//     subCategory: [
+//       {
+//         id: 2,
+//         title: "Adhesive",
+//       },
+//       {
+//         id: 6,
+//         title: "Disposable Surgical",
+//       },
+//       {
+//         id: 7,
+//         title: "Disinfectant",
+//       },
+//       {
+//         id: 9,
+//         title: "Endodontics",
+//       },
+//       {
+//         id: 13,
+//         title: "Impression",
+//       },
+//       {
+//         id: 16,
+//         title: "Orthodontics",
+//       },
+//       {
+//         id: 19,
+//         title: "Periodontal",
+//       },
+//       {
+//         id: 20,
+//         title: "Preventive",
+//       },
+//       {
+//         id: 22,
+//         title: "Restorative & Lutting",
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     imgSrc: "categories.png",
+//     title: "Dental Lasers",
+//   },
+//   {
+//     id: 4,
+//     imgSrc: "categories.png",
+//     title: "Lab",
+//     subCategory: [
+//       {
+//         id: 11,
+//         title: "Equipment",
+//       },
 
-      {
-        id: 16,
-        title: "Materials",
-      },
-    ],
-  },
-  {
-    id: 5,
-    imgSrc: "categories.png",
-    title: "Dental Char Units",
-  },
-  {
-    id: 6,
-    imgSrc: "categories.png",
-    title: "Dental Instruments",
-    subCategory: [
-      {
-        id: 18,
-        title: "Ortho-Dontics Instruments",
-      },
-      {
-        id: 19,
-        title: "Operative & Surgical Instruments",
-      },
-    ],
-  },
-  {
-    id: 7,
-    imgSrc: "categories.png",
-    title: "Ortho-Dontics",
-  },
-  {
-    id: 8,
-    imgSrc: "categories.png",
-    title: "Burs",
-    subCategory: [
-      {
-        id: 8,
-        title: "Diamond Burs",
-      },
-      {
-        id: 3,
-        title: "Carbide Burs",
-      },
-    ],
-  },
-  {
-    id: 9,
-    imgSrc: "categories.png",
-    title: "Export Items",
-  },
-];
+//       {
+//         id: 16,
+//         title: "Materials",
+//       },
+//     ],
+//   },
+//   {
+//     id: 5,
+//     imgSrc: "categories.png",
+//     title: "Dental Char Units",
+//   },
+//   {
+//     id: 6,
+//     imgSrc: "categories.png",
+//     title: "Dental Instruments",
+//     subCategory: [
+//       {
+//         id: 18,
+//         title: "Ortho-Dontics Instruments",
+//       },
+//       {
+//         id: 19,
+//         title: "Operative & Surgical Instruments",
+//       },
+//     ],
+//   },
+//   {
+//     id: 7,
+//     imgSrc: "categories.png",
+//     title: "Ortho-Dontics",
+//   },
+//   {
+//     id: 8,
+//     imgSrc: "categories.png",
+//     title: "Burs",
+//     subCategory: [
+//       {
+//         id: 8,
+//         title: "Diamond Burs",
+//       },
+//       {
+//         id: 3,
+//         title: "Carbide Burs",
+//       },
+//     ],
+//   },
+//   {
+//     id: 9,
+//     imgSrc: "categories.png",
+//     title: "Export Items",
+//   },
+// ];
 export const brands: BrandItem[] = [
   {
     id: 1,

@@ -66,10 +66,6 @@ import { navLinks } from "~/constant/data";
 const scrollPosition: any = ref(window);
 const path = useRoute();
 
-onUpdated(() => {
-  console.log(path.name);
-});
-
 onMounted(() => {
   const handleScroll = () => {
     scrollPosition.value = window.scrollY;

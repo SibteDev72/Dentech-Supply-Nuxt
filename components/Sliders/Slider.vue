@@ -3,37 +3,34 @@
     <section class="flex flex-row justify-between mb-4">
       <div class="flex flex-row items-center space-x-2">
         <p class="text-lg lg:text-3xl font-extrabold">{{ props.data.name }}</p>
-        <button
+        <ChevronLeftIcon
           v-if="props.data.variant === 'category'"
           @click="sliderInstance?.prev()"
-          class="hidden bg-buttonSecondary md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
-        >
-          <
-        </button>
-        <button
+          class="hidden cursor-pointer bg-buttonSecondary p-3 md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
+        />
+        <ChevronRightIcon
           v-if="props.data.variant === 'category'"
           @click="sliderInstance?.next()"
-          class="hidden bg-buttonSecondary md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
-        >
-          >
-        </button>
+          class="hidden cursor-pointer bg-buttonSecondary p-3 md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
+        />
       </div>
       <button
-        class="hidden w-fit h-fit md:flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 py-2 text-sm rounded-full bg-bgPrimary"
+        class="hidden group w-fit h-fit md:flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 py-2 text-sm rounded-full bg-bgPrimary hover:bg-buttonHover hover:text-textColor5 transition-all duration-300"
       >
         view all {{ props.data.variant === "brand" ? "brands" : "categories" }}
-        <img class="" src="/new/icons/forwardArrow.png" />
+        <ArrowRightIcon
+          class="w-4 text-textColor4 group-hover:text-textColor5"
+        />
       </button>
     </section>
 
     <section class="relative">
-      <button
+      <ChevronLeftIcon
         v-if="props.data.variant === 'brand'"
         @click="sliderInstance?.prev()"
-        class="z-50 absolute top-1/2 transform -translate-y-1/2 left-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
-      >
-        <
-      </button>
+        class="z-50 cursor-pointer absolute top-1/2 transform -translate-y-1/2 left-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center items-center p-3 w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
+      />
+
       <article
         ref="sliderRef"
         :class="`keen-slider p-2 ${
@@ -42,19 +39,22 @@
       >
         <slot />
       </article>
-      <button
+      <ChevronRightIcon
         v-if="props.data.variant === 'brand'"
         @click="sliderInstance?.next()"
-        class="z-50 absolute top-1/2 transform -translate-y-1/2 right-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
-      >
-        >
-      </button>
+        class="z-50 cursor-pointer absolute top-1/2 transform -translate-y-1/2 right-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center p-3 items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
+      />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { KeenSliderInstance } from "keen-slider";
+import {
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  ArrowRightIcon,
+} from "@heroicons/vue/24/solid";
 import KeenSlider from "keen-slider";
 import "keen-slider/keen-slider.min.css";
 
