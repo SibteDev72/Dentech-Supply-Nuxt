@@ -53,9 +53,12 @@
               router.push('/Shop/Equipment');
             }
           "
-          class="flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 py-1 text-sm md:py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary"
+          class="group flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 py-1 text-sm md:py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary hover:text-textColor5 hover:bg-buttonHover transition-all duration-300"
         >
-          See more <img class="" src="/new/icons/forwardArrow.png" />
+          See more
+          <ArrowRightIcon
+            class="w-4 text-textColor4 group-hover:text-textColor5"
+          />
         </button>
       </div>
       <article
@@ -92,6 +95,7 @@
 </template>
 
 <script setup lang="ts">
+import { ArrowRightIcon } from "@heroicons/vue/24/solid";
 import { Products, services } from "~/constant/data";
 const router = useRouter();
 const urls = ref([

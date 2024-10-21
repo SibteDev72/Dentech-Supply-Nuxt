@@ -10,10 +10,13 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.1.5",
+    "dotenv": "^16.4.5",
     "keen-slider": "^6.8.6",
     "nuxt": "^3.13.0",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "woocommerce-rest-ts-api": "^7.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

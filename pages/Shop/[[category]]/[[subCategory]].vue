@@ -6,12 +6,22 @@
       <p class="text-3xl font-extrabold">New products</p>
     </div>
     <div class="flex flex-row gap-6">
-      <div class="w-[25%]">
+      <div class="hidden lg:flex w-[25%]">
         <BarSideBarCategories />
       </div>
-      <div class="flex flex-col gap-[2rem] w-[75%]">
+      <div class="w-full lg:w-[75%] flex flex-col gap-[2rem]">
+        <div class="lg:hidden flex flex-row justify-between items-center">
+          <div class="flex flex-row items-center gap-4">
+            <button>Filter</button>
+            <p class="text-sm text-textColor4">{{ route.params.category }}</p>
+          </div>
+          <div class="flex flex-row items-center gap-4">
+            <button>Filter</button>
+            <p class="text-sm text-textColor4">{{ route.params.category }}</p>
+          </div>
+        </div>
         <div
-          class="flex flex-row justify-between items-center w-full h-fit bg-bgPrimary shadow-lg rounded-full"
+          class="hidden lg:flex flex-row justify-between items-center w-full h-fit bg-bgPrimary shadow-lg rounded-full"
         >
           <span
             class="bg-bgColor3 rounded-full text-textColor5 font-bold px-[5rem] py-[1rem]"
@@ -19,7 +29,7 @@
             {{ route.params.category }}
           </span>
         </div>
-        <article class="grid grid-cols-3 gap-2">
+        <article class="grid grid-cols-2 lg:grid-cols-3 gap-2">
           <CardsProduct
             v-for="(item, index) in sortedProducts"
             :key="index"

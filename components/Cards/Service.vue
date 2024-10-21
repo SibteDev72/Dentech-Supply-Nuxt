@@ -19,14 +19,16 @@
       </p>
     </div>
     <button
-      class="mt-[-10px] lg:mt-[-15px] flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-[10px] lg:text-sm py-1 rounded-full bg-bgPrimary"
+      class="group mt-[-10px] lg:mt-[-15px] flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-[10px] lg:text-sm py-1 rounded-full bg-bgPrimary hover:bg-buttonHover hover:text-textColor5 transition-all duration-300"
     >
-      More Details <img class="" src="/new/icons/forwardArrow.png" />
+      More Details
+      <ArrowRightIcon class="w-4 text-textColor4 group-hover:text-textColor5" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ArrowRightIcon } from "@heroicons/vue/24/solid";
 import type { ServiceItem } from "~/types/Services";
 
 const props = defineProps<{
