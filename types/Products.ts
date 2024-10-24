@@ -1,8 +1,20 @@
 export type ProductItem = {
   id: number;
-  imgSrc: string;
-  artical: string;
+  imgSrc: {
+    id: number;
+    date_created: Date;
+    date_created_gmt: Date;
+    date_modified: Date;
+    date_modified_gmt: Date;
+    src: string;
+    name: string;
+    alt: string;
+  }[];
   title: string;
+  category: CategoryItem[];
+  description: string;
+  price: number;
+  createdAt: Date;
 };
 
 export type SubCategoryItemn = {
@@ -13,7 +25,7 @@ export type SubCategoryItemn = {
 
 export type CategoryItem = {
   id: number;
-  imgSrc: string;
+  imgSrc?: string;
   title: string;
   slug: string;
   subCategory?: SubCategoryItemn[];

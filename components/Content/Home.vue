@@ -50,7 +50,7 @@
         <button
           @click="
             () => {
-              router.push('/Shop/Equipment');
+              router.push('/Shop/burs&trackId=59');
             }
           "
           class="group flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 py-1 text-sm md:py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary hover:text-textColor5 hover:bg-buttonHover transition-all duration-300"
@@ -65,10 +65,8 @@
         class="grid grid-cols-2 gap-2 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-4"
       >
         <CardsProduct
-          v-for="(item, index) in Products.sort((a, b) => b.id - a.id).slice(
-            0,
-            4
-          )"
+          v-if="newProductData.length > 0"
+          v-for="(item, index) in newProductData"
           :key="index"
           :data="item"
         />
@@ -95,8 +93,10 @@
 </template>
 
 <script setup lang="ts">
+import type { ProductItem } from "~/types/Products";
 import { ArrowRightIcon } from "@heroicons/vue/24/solid";
-import { Products, services } from "~/constant/data";
+import { services } from "~/constant/data";
+import { getNewProductsData } from "~/API/Products";
 const router = useRouter();
 const urls = ref([
   "/new/images/slider-pic-1.png",
@@ -105,6 +105,7 @@ const urls = ref([
   "/new/images/slider-pic-4.png",
 ]);
 const currentPos = ref<number>(0);
+const newProductData = ref<ProductItem[]>([]);
 const imgSrc = ref<string>(urls.value[currentPos.value]);
 
 watch(
@@ -118,7 +119,15 @@ watch(
   { deep: true, immediate: true }
 );
 
+const fetchNewProducts = async () => {
+  const data = await getNewProductsData(4);
+  if (data) {
+    newProductData.value = data;
+  }
+};
+
 onMounted(() => {
+  fetchNewProducts();
   setInterval(() => {
     currentPos.value += 1;
     imgSrc.value = urls.value[currentPos.value];

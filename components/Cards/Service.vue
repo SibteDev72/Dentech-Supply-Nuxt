@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ArrowRightIcon } from "@heroicons/vue/24/solid";
-import type { ServiceItem } from "~/types/Services";
+import type { ServiceItem } from "~/types/Content";
 
 const props = defineProps<{
   data: ServiceItem;
