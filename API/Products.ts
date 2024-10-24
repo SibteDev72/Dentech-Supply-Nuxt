@@ -7,8 +7,8 @@ import {
 } from "~/utils/getApis";
 
 export const getCategoriesData = async () => {
-  let source = "/";
-  // let source = "https://dentech-supply.vercel.app/";
+  // let source = "/";
+  let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getCategoriesUrl(source);
   try {
     const apiResponse = await GET(api_url);
