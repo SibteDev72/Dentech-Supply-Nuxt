@@ -10,7 +10,8 @@ export default defineEventHandler(async (event) => {
     version: "wc/v3",
   });
 
-  const { type } = getQuery(event);
+  const { type, currentPage, itemsPerPage, sortBy, selectedCategoryId } =
+    getQuery(event);
 
   try {
     let res;
@@ -18,11 +19,16 @@ export default defineEventHandler(async (event) => {
       res = await api.get(
         "products/categories?per_page=100" as unknown as WooRestApiEndpoint
       );
-    } else {
-      res = await api.get("products");
+    } else if (type === "newProducts") {
+      res = await api.get(
+        `products?per_page=${itemsPerPage}&&orderby=${sortBy}` as unknown as WooRestApiEndpoint
+      );
+    } else if (type === "allProducts") {
+      res = await api.get(
+        `products?page=${currentPage}&&per_page=${itemsPerPage}&&orderby=${sortBy}&&category=${selectedCategoryId}` as unknown as WooRestApiEndpoint
+      );
     }
-
-    return res.data;
+    return { data: res.data, totalProducts: res.headers["x-wp-total"] };
   } catch (error) {
     console.error("WooCommerce API error:", error);
     throw createError({

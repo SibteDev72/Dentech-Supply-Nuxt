@@ -5,10 +5,10 @@
       :key="index"
       :to="{
         name: 'Shop-category-subCategory',
-        params: { category: category.slug },
+        params: { category: `${category.slug}&trackId=${category.id}` },
       }"
       :class="`flex flex-col border-b-[1px] border-borderSecondary font-bold text-md ${
-        route.params.category === category.slug &&
+        route.params.category === `${category.slug}&trackId=${category.id}` &&
         'bg-bgColor3 text-textColor5 shadow-md shadow-bgColor3'
       }`"
     >
@@ -16,10 +16,12 @@
         <p>{{ category.title }}</p>
         <ChevronDownIcon
           :class="`w-5 text-textColor4 ${
-            route.params.category === category.slug && 'text-textColor5'
+            route.params.category ===
+              `${category.slug}&trackId=${category.id}` && 'text-textColor5'
           } transition-all duration-300 ${
             subCategoryStatus === true &&
-            route.params.category === category.slug &&
+            route.params.category ===
+              `${category.slug}&trackId=${category.id}` &&
             'rotate-180'
           }`"
           @click="
@@ -29,7 +31,7 @@
           "
           v-if="
             category.subCategory?.length !== 0 &&
-            route.params.category === category.slug
+            route.params.category === `${category.slug}&trackId=${category.id}`
           "
         />
       </div>
@@ -46,7 +48,7 @@
         <div
           v-show="
             subCategoryStatus === true &&
-            route.params.category === category.slug
+            route.params.category === `${category.slug}&trackId=${category.id}`
           "
         >
           <NuxtLink
@@ -55,15 +57,16 @@
             :to="{
               name: 'Shop-category-subCategory',
               params: {
-                category: category.slug,
-                subCategory: subCategory.slug,
+                category: `${category.slug}&trackId=${category.id}`,
+                subCategory: `${subCategory.slug}&trackId=${subCategory.id}`,
               },
             }"
             :class="`flex flex-col px-1 py-3 bg-bgPrimary text-textPrimary`"
           >
             <p
               :class="`${
-                route.params.subCategory === subCategory.slug &&
+                route.params.subCategory ===
+                  `${subCategory.slug}&trackId=${subCategory.id}` &&
                 'text-textColor4'
               }`"
             >

@@ -15,6 +15,15 @@
         />
       </div>
       <button
+        @click="
+          () => {
+            router.push(
+              `${
+                props.data.variant === 'brand' ? '/' : '/Shop/burs&trackId=59'
+              }`
+            );
+          }
+        "
         class="hidden group w-fit h-fit md:flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 py-2 text-sm rounded-full bg-bgPrimary hover:bg-buttonHover hover:text-textColor5 transition-all duration-300"
       >
         view all {{ props.data.variant === "brand" ? "brands" : "categories" }}
@@ -61,6 +70,7 @@ import "keen-slider/keen-slider.min.css";
 const props = defineProps<{
   data: { name: string; variant: string };
 }>();
+const router = useRouter();
 
 const sliderRef = ref<HTMLElement | null>(null);
 let sliderInstance: KeenSliderInstance | null = null;

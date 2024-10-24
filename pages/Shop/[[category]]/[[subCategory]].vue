@@ -13,25 +13,30 @@
         <div class="lg:hidden flex flex-row justify-between items-center">
           <div class="flex flex-row items-center gap-4">
             <button>Filter</button>
-            <p class="text-sm text-textColor4">{{ route.params.category }}</p>
+            <p class="text-sm capitalize text-textColor4">
+              {{ selectedCategory }}
+            </p>
           </div>
           <div class="flex flex-row items-center gap-4">
             <button>Filter</button>
-            <p class="text-sm text-textColor4">{{ route.params.category }}</p>
+            <p class="text-sm capitalize text-textColor4">
+              {{ selectedCategory }}
+            </p>
           </div>
         </div>
         <div
           class="hidden lg:flex flex-row justify-between items-center w-full h-fit bg-bgPrimary shadow-lg rounded-full"
         >
           <span
-            class="bg-bgColor3 rounded-full text-textColor5 font-bold px-[5rem] py-[1rem]"
+            class="bg-bgColor3 capitalize rounded-full text-textColor5 font-bold px-[5rem] py-[1rem]"
           >
-            {{ route.params.category }}
+            {{ selectedCategory }}
           </span>
         </div>
         <article class="grid grid-cols-2 lg:grid-cols-3 gap-2">
           <CardsProduct
-            v-for="(item, index) in sortedProducts"
+            v-if="ProductData.length > 0"
+            v-for="(item, index) in ProductData"
             :key="index"
             :data="item"
           />
@@ -42,8 +47,27 @@
 </template>
 
 <script setup lang="ts">
-import { Products } from "~/constant/data";
+import type { ProductItem } from "~/types/Products";
+import { getProductsData } from "~/API/Products";
 
 const route = useRoute();
-const sortedProducts = [...Products].sort((a, b) => b.id - a.id);
+const categories = useCategories();
+const selectedCategory = ref<string>("");
+const ProductData = ref<ProductItem[]>([]);
+
+const fetchProducts = async () => {
+  const data = await getProductsData(2, 10, "date", 28);
+  if (data) {
+    ProductData.value = data;
+  }
+};
+
+onMounted(async () => {
+  fetchProducts();
+  categories.value.map((category) => {
+    if (`${category.slug}&trackId=${category.id}` === route.params.category) {
+      selectedCategory.value = category.title;
+    }
+  });
+});
 </script>

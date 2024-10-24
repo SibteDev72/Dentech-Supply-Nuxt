@@ -1,4 +1,8 @@
-import type { CategoryItem, SubCategoryItemn } from "~/types/Products";
+import type {
+  CategoryItem,
+  SubCategoryItemn,
+  ProductItem,
+} from "~/types/Products";
 
 export const categoriesMapper = (categories: any) => {
   const cat = useCategories();
@@ -25,4 +29,19 @@ export const categoriesMapper = (categories: any) => {
       cat.value.push(obj);
     }
   });
+};
+export const productsMapper = (products: any) => {
+  let productArray: ProductItem[] = [];
+  products.map((product: any) => {
+    productArray.push({
+      id: product.id,
+      imgSrc: product.images,
+      title: product.name,
+      price: product.price,
+      description: product.description,
+      category: product.categories,
+      createdAt: product.date_created,
+    });
+  });
+  return productArray;
 };

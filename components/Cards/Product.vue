@@ -4,20 +4,19 @@
   >
     <div class="relative flex flex-col gap-4 items-center">
       <p
-        v-if="props.data.id >= 7 && props.data.id <= 12"
         class="absolute text-[10px] sm:text-sm px-4 py-1 font-bold top-0 left-0 text-textColor5 bg-bgColor3"
       >
         New
       </p>
       <img
         class="mt-5 w-[108px] h-auto sm:w-[10rem] lg:w-[20rem]"
-        :src="`/new/images/${props.data.imgSrc}`"
+        :src="`${props.data.imgSrc[0].src}`"
       />
       <p class="text-textSecondary text-[8px] sm:text-sm lg:text-md">
-        Artical :{{ props.data.artical }}
+        Artical :000{{ props.data.id }}
       </p>
       <p class="text-[8px] sm:text-sm lg:text-lg font-extrabold text-center">
-        {{ props.data.title }} {{ props.data.id }}
+        {{ props.data.title }}
       </p>
     </div>
     <button
