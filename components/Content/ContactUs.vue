@@ -50,9 +50,17 @@
         <div
           class="flex flex-col gap-2 items-start mt-4 text-textSecondary text-sm"
         >
-          <div v-for="(item, index) in categories.slice(0, 5)" :key="index">
-            <p class="capitalize cursor-pointer">{{ item.title }}</p>
-          </div>
+          <NuxtLink
+            v-for="(category, index) in categories.slice(0, 5)"
+            :key="index"
+            :to="{
+              name: 'Shop-category-subCategory',
+              params: { category: `${category.slug}_Id=${category.id}` },
+            }"
+            class="capitalize cursor-pointer"
+          >
+            {{ category.title }}
+          </NuxtLink>
         </div>
       </div>
 

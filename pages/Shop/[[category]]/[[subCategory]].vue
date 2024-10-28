@@ -10,29 +10,7 @@
         <BarSideBarCategories />
       </div>
       <div class="w-full lg:w-[75%] flex flex-col gap-[2rem]">
-        <div class="lg:hidden flex flex-row justify-between items-center">
-          <div class="flex flex-row items-center gap-4">
-            <button>Filter</button>
-            <p class="text-sm capitalize text-textColor4">
-              {{ selectedCategory }}
-            </p>
-          </div>
-          <div class="flex flex-row items-center gap-4">
-            <button>Filter</button>
-            <p class="text-sm capitalize text-textColor4">
-              {{ selectedCategory }}
-            </p>
-          </div>
-        </div>
-        <div
-          class="hidden lg:flex flex-row justify-between items-center w-full h-fit bg-bgPrimary shadow-lg rounded-full"
-        >
-          <span
-            class="bg-bgColor3 capitalize rounded-full text-textColor5 font-bold px-[5rem] py-[1rem]"
-          >
-            {{ selectedCategory }}
-          </span>
-        </div>
+        <BarMenu />
         <article class="grid grid-cols-2 lg:grid-cols-3 gap-2">
           <CardsProduct
             v-if="ProductData.length > 0"
@@ -41,6 +19,7 @@
             :data="item"
           />
         </article>
+        <!-- <Paggination class="self-center" /> -->
       </div>
     </div>
   </div>
@@ -50,24 +29,47 @@
 import type { ProductItem } from "~/types/Products";
 import { getProductsData } from "~/API/Products";
 
-const route = useRoute();
-const categories = useCategories();
-const selectedCategory = ref<string>("");
+const itemsPerPage = useItemsPerPage();
+const sotingValue = useSotingValue();
+const selectedCategoryID = useSelectedCategoryID();
 const ProductData = ref<ProductItem[]>([]);
+const route = useRoute();
 
-const fetchProducts = async () => {
-  const data = await getProductsData(2, 10, "date", 28);
+const fetchProducts = async (categoryID: number) => {
+  const data = await getProductsData(
+    1,
+    itemsPerPage.value,
+    sotingValue.value,
+    categoryID
+  );
   if (data) {
     ProductData.value = data;
   }
 };
 
-onMounted(async () => {
-  fetchProducts();
-  categories.value.map((category) => {
-    if (`${category.slug}&trackId=${category.id}` === route.params.category) {
-      selectedCategory.value = category.title;
+const getIdFromParams = (params: any) => {
+  let id;
+  if (!params.subCategory) {
+    const match = params.category.match(/Id=(\d+)/);
+    id = match ? parseInt(match[1], 10) : 0;
+  } else {
+    const match = params.subCategory.match(/Id=(\d+)/);
+    id = match ? parseInt(match[1], 10) : 0;
+  }
+  return id;
+};
+
+watch(
+  [() => itemsPerPage.value, () => sotingValue.value],
+  ([newItemsPerPage, newSortingValue]) => {
+    if (newItemsPerPage || newSortingValue) {
+      fetchProducts(selectedCategoryID.value);
     }
-  });
+  }
+);
+
+onMounted(() => {
+  selectedCategoryID.value = getIdFromParams(route.params);
+  fetchProducts(selectedCategoryID.value);
 });
 </script>

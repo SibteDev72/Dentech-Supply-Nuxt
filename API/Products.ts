@@ -1,5 +1,9 @@
 import { GET } from "./Fetch";
-import { categoriesMapper, productsMapper } from "~/utils/helperFunction";
+import {
+  categoriesMapper,
+  productsMapper,
+  getNumberOfPages,
+} from "~/utils/helperFunction";
 import {
   getProductsUrl,
   getNewProductsUrl,
@@ -7,7 +11,7 @@ import {
 } from "~/utils/getApis";
 
 export const getCategoriesData = async () => {
-  // let source = "/";
+  // let source = "http://localhost:3000/";
   let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getCategoriesUrl(source);
   try {
@@ -23,7 +27,7 @@ export const getCategoriesData = async () => {
   }
 };
 export const getNewProductsData = async (itemsPerPage: number) => {
-  // let source = "/";
+  // let source = "http://localhost:3000/";
   let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getNewProductsUrl(source, itemsPerPage);
   try {
@@ -44,7 +48,7 @@ export const getProductsData = async (
   sortBy: string,
   selectedCategoryId: number
 ) => {
-  // let source = "/";
+  // let source = "http://localhost:3000/";
   let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getProductsUrl(
     source,
@@ -56,6 +60,7 @@ export const getProductsData = async (
   try {
     const apiResponse = await GET(api_url);
     if (apiResponse) {
+      getNumberOfPages(apiResponse.totalProducts, itemsPerPage);
       const productData = productsMapper(apiResponse.data);
       if (productData) {
         return productData;
