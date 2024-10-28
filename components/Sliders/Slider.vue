@@ -19,7 +19,7 @@
           () => {
             router.push(
               `${
-                props.data.variant === 'brand' ? '/' : '/Shop/burs&trackId=59'
+                props.data.variant === 'brand' ? '/' : '/Shop/equipment_Id=28'
               }`
             );
           }

@@ -2,7 +2,7 @@
   <NuxtLink
     :to="{
       name: 'Shop-category-subCategory',
-      params: { category: `${props.data.slug}&trackId=${props.data.id}` },
+      params: { category: `${props.data.slug}_Id=${props.data.id}` },
     }"
     class="flex flex-row items-center shadow-xl"
   >

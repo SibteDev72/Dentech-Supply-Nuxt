@@ -13,7 +13,7 @@ export const navLinks: navLinkInterface[] = [
     id: 2,
     name: "Shop-category-subCategory",
     title: "categories",
-    path: "/Shop/burs&trackId=59",
+    path: "/Shop/equipment_Id=28",
   },
   {
     id: 3,

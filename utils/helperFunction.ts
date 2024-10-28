@@ -1,47 +1,80 @@
-import type {
-  CategoryItem,
-  SubCategoryItemn,
-  ProductItem,
-} from "~/types/Products";
+import type { CategoryItem, ProductItem } from "~/types/Products";
 
-export const categoriesMapper = (categories: any) => {
+export const categoriesMapper = (categories: any[]) => {
   const cat = useCategories();
-  categories.map((category: any) => {
+  const parentCategories: Record<number, CategoryItem> = {};
+  const subCategories: {
+    id: number;
+    title: string;
+    slug: string;
+    parent: number;
+  }[] = [];
+  categories.forEach((category) => {
     if (category.parent === 0) {
-      let obj: CategoryItem = {
+      parentCategories[category.id] = {
         id: category.id,
         imgSrc: category.image?.src || "",
         title: category.name,
         slug: category.slug,
         subCategory: [],
       };
-      categories.map((subCategory: any) => {
-        if (subCategory.parent === category.id) {
-          let subCatObj: SubCategoryItemn = {
-            id: subCategory.id,
-            title: subCategory.name,
-            slug: subCategory.slug,
-          };
-          //@ts-ignore
-          obj.subCategory.push(subCatObj);
-        }
+    } else {
+      subCategories.push({
+        id: category.id,
+        title: category.name,
+        slug: category.slug,
+        parent: category.parent,
       });
-      cat.value.push(obj);
     }
   });
+  subCategories.forEach((subCategory) => {
+    const parentCategory = parentCategories[subCategory.parent];
+    if (parentCategory) {
+      parentCategory.subCategory?.push({
+        id: subCategory.id,
+        title: subCategory.title,
+        slug: subCategory.slug,
+      });
+    }
+  });
+  cat.value.push(...Object.values(parentCategories));
 };
-export const productsMapper = (products: any) => {
-  let productArray: ProductItem[] = [];
-  products.map((product: any) => {
-    productArray.push({
+
+export const productsMapper = (products: any[]): ProductItem[] => {
+  const cat = useCategories();
+  const categoryMap = new Map(
+    cat.value.map((category: CategoryItem) => [category.id, category])
+  );
+  return products.map((product) => {
+    const productCategories: CategoryItem[] = product.categories
+      .map((productCat: CategoryItem) => {
+        const mainCategory = categoryMap.get(productCat.id);
+        if (!mainCategory) return null;
+        const mainCatObj: CategoryItem = {
+          ...mainCategory,
+          subCategory:
+            mainCategory.subCategory?.filter((subCat) =>
+              product.categories.some(
+                (prodCat: any) => prodCat.id === subCat.id
+              )
+            ) || [],
+        };
+        return mainCatObj;
+      })
+      .filter(Boolean) as CategoryItem[];
+    return {
       id: product.id,
       imgSrc: product.images,
       title: product.name,
       price: product.price,
       description: product.description,
-      category: product.categories,
+      categories: productCategories,
       createdAt: product.date_created,
-    });
+    };
   });
-  return productArray;
+};
+
+export const getNumberOfPages = (totalItems: number, itemsPerPage: number) => {
+  const numberOfPages = useNumberOfPages();
+  numberOfPages.value = Math.ceil(totalItems / itemsPerPage);
 };
