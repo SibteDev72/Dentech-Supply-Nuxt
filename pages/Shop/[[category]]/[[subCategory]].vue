@@ -43,6 +43,8 @@ const fetchProducts = async (categoryID: number) => {
   loading.value = true;
   const data = await getProductsData(
     activePage.value,
+    fiteredRange.value.min,
+    fiteredRange.value.max,
     itemsPerPage.value,
     sotingValue.value,
     categoryID

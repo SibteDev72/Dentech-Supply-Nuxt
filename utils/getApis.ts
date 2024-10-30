@@ -10,11 +10,13 @@ export const getNewProductsUrl = (source: string, itemsPerPage: number) => {
 
 export const getProductsUrl = (
   source: string,
+  minPrice: number,
+  maxPrice: number,
   currentPage: number,
   itemsPerPage: number,
   sortBy: string,
   selectedCategoryId: number
 ) => {
-  let url = `${source}api/products?type=allProducts&&currentPage=${currentPage}&&itemsPerPage=${itemsPerPage}&&sortBy=${sortBy}&&selectedCategoryId=${selectedCategoryId}`;
+  let url = `${source}api/products?type=allProducts&&currentPage=${currentPage}&&minPrice=${minPrice}&&maxPrice=${maxPrice}&&itemsPerPage=${itemsPerPage}&&sortBy=${sortBy}&&selectedCategoryId=${selectedCategoryId}`;
   return url;
 };
