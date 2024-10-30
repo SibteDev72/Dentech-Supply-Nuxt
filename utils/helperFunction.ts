@@ -41,42 +41,35 @@ export const categoriesMapper = (categories: any[]) => {
 };
 export const productsMapper = (products: any[]): ProductItem[] => {
   const cat = useCategories();
-  const filteredRange = useFiteredRange();
   const categoryMap = new Map(
     cat.value.map((category) => [category.id, category])
   );
-  return products
-    .filter(
-      (product) =>
-        product.price >= filteredRange.value.min &&
-        product.price <= filteredRange.value.max
-    )
-    .map((product) => {
-      const productCategories: CategoryItem[] = product.categories.flatMap(
-        (productCat: CategoryItem) => {
-          const mainCategory = categoryMap.get(productCat.id);
-          if (!mainCategory) return [];
-          const subCategory =
-            mainCategory.subCategory?.filter((subCat) =>
-              product.categories.some(
-                (prodCat: CategoryItem) => prodCat.id === subCat.id
-              )
-            ) || [];
+  return products.map((product) => {
+    const productCategories: CategoryItem[] = product.categories.flatMap(
+      (productCat: CategoryItem) => {
+        const mainCategory = categoryMap.get(productCat.id);
+        if (!mainCategory) return [];
+        const subCategory =
+          mainCategory.subCategory?.filter((subCat) =>
+            product.categories.some(
+              (prodCat: CategoryItem) => prodCat.id === subCat.id
+            )
+          ) || [];
 
-          return [{ ...mainCategory, subCategory }];
-        }
-      );
+        return [{ ...mainCategory, subCategory }];
+      }
+    );
 
-      return {
-        id: product.id,
-        imgSrc: product.images,
-        title: product.name,
-        price: product.price,
-        description: product.description,
-        categories: productCategories,
-        createdAt: product.date_created,
-      };
-    });
+    return {
+      id: product.id,
+      imgSrc: product.images,
+      title: product.name,
+      price: product.price,
+      description: product.description,
+      categories: productCategories,
+      createdAt: product.date_created,
+    };
+  });
 };
 
 export const getNumberOfPages = (totalItems: number, itemsPerPage: number) => {
