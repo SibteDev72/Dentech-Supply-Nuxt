@@ -13,7 +13,7 @@
         :src="`${props.data.imgSrc[0].src}`"
       />
       <p class="text-textSecondary text-[8px] sm:text-sm lg:text-md">
-        Artical :000{{ props.data.id }} price: {{ props.data.price }}
+        Artical :000{{ props.data.id }}-Price: {{ props.data.price }}
       </p>
       <p class="text-[8px] sm:text-sm lg:text-lg font-extrabold text-center">
         {{ props.data.title }}
