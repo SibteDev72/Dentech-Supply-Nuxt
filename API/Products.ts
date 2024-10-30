@@ -11,8 +11,8 @@ import {
 } from "~/utils/getApis";
 
 export const getCategoriesData = async () => {
-  let source = "http://localhost:3000/";
-  // let source = "https://dentech-supply.vercel.app/";
+  // let source = "http://localhost:3000/";
+  let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getCategoriesUrl(source);
   try {
     const apiResponse = await GET(api_url);
@@ -27,8 +27,8 @@ export const getCategoriesData = async () => {
   }
 };
 export const getNewProductsData = async (itemsPerPage: number) => {
-  let source = "http://localhost:3000/";
-  // let source = "https://dentech-supply.vercel.app/";
+  // let source = "http://localhost:3000/";
+  let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getNewProductsUrl(source, itemsPerPage);
   try {
     const apiResponse = await GET(api_url);
@@ -50,8 +50,8 @@ export const getProductsData = async (
   sortBy: string,
   selectedCategoryId: number
 ) => {
-  let source = "http://localhost:3000/";
-  // let source = "https://dentech-supply.vercel.app/";
+  // let source = "http://localhost:3000/";
+  let source = "https://dentech-supply.vercel.app/";
   let api_url: string = getProductsUrl(
     source,
     minPrice,
