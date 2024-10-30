@@ -39,6 +39,7 @@ export const categoriesMapper = (categories: any[]) => {
   });
   cat.value.push(...Object.values(parentCategories));
 };
+
 export const productsMapper = (products: any[]): ProductItem[] => {
   const cat = useCategories();
   const categoryMap = new Map(
