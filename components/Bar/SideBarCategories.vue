@@ -75,6 +75,7 @@
         </div>
       </transition>
     </NuxtLink>
+    <InputsPriceRange class="self-center my-5" />
   </div>
 </template>
 

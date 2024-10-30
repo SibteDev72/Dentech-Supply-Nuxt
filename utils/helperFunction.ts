@@ -39,42 +39,54 @@ export const categoriesMapper = (categories: any[]) => {
   });
   cat.value.push(...Object.values(parentCategories));
 };
-
 export const productsMapper = (products: any[]): ProductItem[] => {
   const cat = useCategories();
+  const filteredRange = useFiteredRange();
   const categoryMap = new Map(
-    cat.value.map((category: CategoryItem) => [category.id, category])
+    cat.value.map((category) => [category.id, category])
   );
-  return products.map((product) => {
-    const productCategories: CategoryItem[] = product.categories
-      .map((productCat: CategoryItem) => {
-        const mainCategory = categoryMap.get(productCat.id);
-        if (!mainCategory) return null;
-        const mainCatObj: CategoryItem = {
-          ...mainCategory,
-          subCategory:
+  return products
+    .filter(
+      (product) =>
+        product.price >= filteredRange.value.min &&
+        product.price <= filteredRange.value.max
+    )
+    .map((product) => {
+      const productCategories: CategoryItem[] = product.categories.flatMap(
+        (productCat: CategoryItem) => {
+          const mainCategory = categoryMap.get(productCat.id);
+          if (!mainCategory) return [];
+          const subCategory =
             mainCategory.subCategory?.filter((subCat) =>
               product.categories.some(
-                (prodCat: any) => prodCat.id === subCat.id
+                (prodCat: CategoryItem) => prodCat.id === subCat.id
               )
-            ) || [],
-        };
-        return mainCatObj;
-      })
-      .filter(Boolean) as CategoryItem[];
-    return {
-      id: product.id,
-      imgSrc: product.images,
-      title: product.name,
-      price: product.price,
-      description: product.description,
-      categories: productCategories,
-      createdAt: product.date_created,
-    };
-  });
+            ) || [];
+
+          return [{ ...mainCategory, subCategory }];
+        }
+      );
+
+      return {
+        id: product.id,
+        imgSrc: product.images,
+        title: product.name,
+        price: product.price,
+        description: product.description,
+        categories: productCategories,
+        createdAt: product.date_created,
+      };
+    });
 };
 
 export const getNumberOfPages = (totalItems: number, itemsPerPage: number) => {
-  const numberOfPages = useNumberOfPages();
-  numberOfPages.value = Math.ceil(totalItems / itemsPerPage);
+  let numberOfPages = Math.ceil(totalItems / itemsPerPage);
+  const pagesArray = usePagesArray();
+  if (numberOfPages === 1) {
+    pagesArray.value = [1];
+  } else if (numberOfPages === 2) {
+    pagesArray.value = [1, 2];
+  } else {
+    pagesArray.value = Array.from({ length: numberOfPages }, (_, i) => i + 1);
+  }
 };

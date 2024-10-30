@@ -10,16 +10,17 @@
         <BarSideBarCategories />
       </div>
       <div class="w-full lg:w-[75%] flex flex-col gap-[2rem]">
-        <BarMenu />
+        <BarShop />
+        <SkeletonShop v-if="loading === true" />
         <article class="grid grid-cols-2 lg:grid-cols-3 gap-2">
           <CardsProduct
-            v-if="ProductData.length > 0"
+            v-if="ProductData.length > 0 && loading === false"
             v-for="(item, index) in ProductData"
             :key="index"
             :data="item"
           />
         </article>
-        <!-- <Paggination class="self-center" /> -->
+        <Paggination class="self-center" />
       </div>
     </div>
   </div>
@@ -32,17 +33,22 @@ import { getProductsData } from "~/API/Products";
 const itemsPerPage = useItemsPerPage();
 const sotingValue = useSotingValue();
 const selectedCategoryID = useSelectedCategoryID();
-const ProductData = ref<ProductItem[]>([]);
+const activePage = useActivePage();
+const fiteredRange = useFiteredRange();
 const route = useRoute();
+const ProductData = ref<ProductItem[]>([]);
+const loading = ref<boolean>(true);
 
 const fetchProducts = async (categoryID: number) => {
+  loading.value = true;
   const data = await getProductsData(
-    1,
+    activePage.value,
     itemsPerPage.value,
     sotingValue.value,
     categoryID
   );
   if (data) {
+    loading.value = false;
     ProductData.value = data;
   }
 };
@@ -60,9 +66,27 @@ const getIdFromParams = (params: any) => {
 };
 
 watch(
-  [() => itemsPerPage.value, () => sotingValue.value],
-  ([newItemsPerPage, newSortingValue]) => {
-    if (newItemsPerPage || newSortingValue) {
+  [
+    () => fiteredRange.value.min,
+    () => fiteredRange.value.max,
+    () => activePage.value,
+    () => itemsPerPage.value,
+    () => sotingValue.value,
+  ],
+  ([
+    newFiteredRangeMin,
+    newFiteredRangeMax,
+    newActivePage,
+    newItemsPerPage,
+    newSortingValue,
+  ]) => {
+    if (
+      newFiteredRangeMin ||
+      newFiteredRangeMax ||
+      newActivePage ||
+      newItemsPerPage ||
+      newSortingValue
+    ) {
       fetchProducts(selectedCategoryID.value);
     }
   }

@@ -1,24 +1,43 @@
 <template>
-  <div class="flex flex-row gap-2 text-sm">
-    <p class="text-textPrimary" v-for="(number, index) in number" :key="index">
-      {{ number }}
+  <div class="w-fit flex flex-row gap-3 items-center text-sm">
+    <ChevronLeftIcon
+      v-if="activePage !== 1"
+      @click="
+        () => {
+          activePage = activePage - 1;
+        }
+      "
+      class="w-5 text-textSecondary cursor-pointer"
+    />
+    <p
+      v-for="(page, index) in pagesArray"
+      :key="index"
+      @click="
+        () => {
+          activePage = page;
+        }
+      "
+      :class="`cursor-pointer text-textSecondary ${
+        page === activePage &&
+        'w-10 h-10 flex flex-col items-center justify-center bg-bgColor3 text-white rounded-[100%]'
+      }`"
+    >
+      {{ page }}
     </p>
+    <ChevronRightIcon
+      v-if="activePage !== pagesArray.length"
+      @click="
+        () => {
+          activePage = activePage + 1;
+        }
+      "
+      class="w-5 text-textSecondary cursor-pointer"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-const numberOfPages = useNumberOfPages();
-let number: number[];
-watch(
-  () => numberOfPages.value,
-  (newValue) => {
-    if (newValue === 1) {
-      number = [1];
-    } else if (newValue === 2) {
-      number = [1, 2];
-    } else {
-      number = Array.from({ length: newValue }, (_, i) => i + 1);
-    }
-  }
-);
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/vue/24/solid";
+const pagesArray = usePagesArray();
+const activePage = useActivePage();
 </script>
