@@ -24,12 +24,16 @@
     >
       Into Basket
     </button>
-    <button
-      class="absolute opacity-0 group-hover:opacity-100 top-28 md:top-32 flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-[12px] sm:text-sm py-1 rounded-full bg-bgPrimary transition-opacity duration-300"
+    <NuxtLink
+      class="cursor-pointer absolute opacity-0 group-hover:opacity-100 top-28 md:top-32 flex flex-row items-center gap-4 shadow-black shadow-sm font-extrabold px-4 text-[12px] sm:text-sm py-1 rounded-full bg-bgPrimary transition-opacity duration-300"
+      :to="{
+        name: 'Product-productId',
+        params: { productId: `${props.data.id}` },
+      }"
     >
       More Details
       <ArrowRightIcon class="w-4 text-textColor4" />
-    </button>
+    </NuxtLink>
   </div>
 </template>
 

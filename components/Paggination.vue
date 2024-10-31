@@ -19,7 +19,7 @@
       "
       :class="`cursor-pointer text-textSecondary ${
         page === activePage &&
-        'w-10 h-10 flex flex-col items-center justify-center bg-bgColor3 text-white rounded-[100%]'
+        'w-10 h-10 flex flex-col items-center justify-center bg-bgColor3 text-white rounded-[100%] transition-all duration-300'
       }`"
     >
       {{ page }}
