@@ -1,11 +1,12 @@
 import { GET } from "./Fetch";
 import {
   categoriesMapper,
-  productsMapper,
+  productMapper,
   getNumberOfPages,
 } from "~/utils/helperFunction";
 import {
   getProductsUrl,
+  getProductDetailsUrl,
   getNewProductsUrl,
   getCategoriesUrl,
 } from "~/utils/getApis";
@@ -33,7 +34,7 @@ export const getNewProductsData = async (itemsPerPage: number) => {
   try {
     const apiResponse = await GET(api_url);
     if (apiResponse) {
-      const productData = productsMapper(apiResponse.data);
+      const productData = productMapper(apiResponse.data);
       if (productData) {
         return productData;
       }
@@ -65,7 +66,23 @@ export const getProductsData = async (
     const apiResponse = await GET(api_url);
     if (apiResponse) {
       getNumberOfPages(apiResponse.totalProducts, itemsPerPage);
-      const productData = productsMapper(apiResponse.data);
+      const productData = productMapper(apiResponse.data);
+      if (productData) {
+        return productData;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+};
+export const getProductDetails = async (productId: number) => {
+  // let source = "http://localhost:3000/";
+  let source = "https://dentech-supply.vercel.app/";
+  let api_url: string = getProductDetailsUrl(source, productId);
+  try {
+    const apiResponse = await GET(api_url);
+    if (apiResponse) {
+      const productData = productMapper(apiResponse.data);
       if (productData) {
         return productData;
       }

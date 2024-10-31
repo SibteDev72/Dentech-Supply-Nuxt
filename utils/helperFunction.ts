@@ -40,12 +40,15 @@ export const categoriesMapper = (categories: any[]) => {
   cat.value.push(...Object.values(parentCategories));
 };
 
-export const productsMapper = (products: any[]): ProductItem[] => {
+export const productMapper = (
+  productOrProducts: any | any[]
+): ProductItem | ProductItem[] => {
   const cat = useCategories();
   const categoryMap = new Map(
     cat.value.map((category) => [category.id, category])
   );
-  return products.map((product) => {
+
+  const mapProduct = (product: any): ProductItem => {
     const productCategories: CategoryItem[] = product.categories.flatMap(
       (productCat: CategoryItem) => {
         const mainCategory = categoryMap.get(productCat.id);
@@ -70,7 +73,11 @@ export const productsMapper = (products: any[]): ProductItem[] => {
       categories: productCategories,
       createdAt: product.date_created,
     };
-  });
+  };
+
+  return Array.isArray(productOrProducts)
+    ? productOrProducts.map(mapProduct)
+    : mapProduct(productOrProducts);
 };
 
 export const getNumberOfPages = (totalItems: number, itemsPerPage: number) => {

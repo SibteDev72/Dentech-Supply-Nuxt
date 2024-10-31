@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
     itemsPerPage,
     sortBy,
     selectedCategoryId,
+    productId,
   } = getQuery(event);
 
   try {
@@ -33,6 +34,10 @@ export default defineEventHandler(async (event) => {
     } else if (type === "allProducts") {
       res = await api.get(
         `products?page=${currentPage}&&min_price=${minPrice}&&max_price=${maxPrice}&&per_page=${itemsPerPage}&&orderby=${sortBy}&&category=${selectedCategoryId}` as unknown as WooRestApiEndpoint
+      );
+    } else if (type === "productDetails") {
+      res = await api.get(
+        `products/${productId}` as unknown as WooRestApiEndpoint
       );
     }
     return { data: res.data, totalProducts: res.headers["x-wp-total"] };
