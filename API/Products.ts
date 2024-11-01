@@ -12,8 +12,8 @@ import {
 } from "~/utils/getApis";
 
 export const getCategoriesData = async () => {
-  // let source = "http://localhost:3000/";
-  let source = "https://dentech-supply.vercel.app/";
+  const config = useRuntimeConfig();
+  let source = config.public.BASE_URL as string;
   let api_url: string = getCategoriesUrl(source);
   try {
     const apiResponse = await GET(api_url);
@@ -28,8 +28,8 @@ export const getCategoriesData = async () => {
   }
 };
 export const getNewProductsData = async (itemsPerPage: number) => {
-  // let source = "http://localhost:3000/";
-  let source = "https://dentech-supply.vercel.app/";
+  const config = useRuntimeConfig();
+  let source = config.public.BASE_URL as string;
   let api_url: string = getNewProductsUrl(source, itemsPerPage);
   try {
     const apiResponse = await GET(api_url);
@@ -51,8 +51,8 @@ export const getProductsData = async (
   sortBy: string,
   selectedCategoryId: number
 ) => {
-  // let source = "http://localhost:3000/";
-  let source = "https://dentech-supply.vercel.app/";
+  const config = useRuntimeConfig();
+  let source = config.public.BASE_URL as string;
   let api_url: string = getProductsUrl(
     source,
     minPrice,
@@ -76,8 +76,8 @@ export const getProductsData = async (
   }
 };
 export const getProductDetails = async (productId: number) => {
-  // let source = "http://localhost:3000/";
-  let source = "https://dentech-supply.vercel.app/";
+  const config = useRuntimeConfig();
+  let source = config.public.BASE_URL as string;
   let api_url: string = getProductDetailsUrl(source, productId);
   try {
     const apiResponse = await GET(api_url);
