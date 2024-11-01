@@ -51,6 +51,7 @@ const fetchProducts = async (categoryID: number) => {
   );
   if (data) {
     loading.value = false;
+    //@ts-ignore
     ProductData.value = data;
   }
 };
