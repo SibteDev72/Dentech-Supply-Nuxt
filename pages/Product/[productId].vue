@@ -5,9 +5,7 @@
     <p v-if="productData" class="text-lg font-extrabold">
       {{ productData.title }}
     </p>
-    <p v-if="productData" class="text-sm font-bold">
-      id: {{ productData.price }}
-    </p>
+    <p v-if="productData" class="text-sm font-bold">id: {{ productData.id }}</p>
     <p v-if="productData" class="text-sm font-bold">
       Price: {{ productData.price }}Rs
     </p>
@@ -24,12 +22,13 @@ const productData = ref<ProductItem>();
 const fetchProductDetails = async (productID: number) => {
   const data = await getProductDetails(productID);
   if (data) {
+    //@ts-ignore
     productData.value = data;
-    console.log(productData.value.title);
   }
 };
 
 onMounted(() => {
+  //@ts-ignore
   fetchProductDetails(route.params.productId);
 });
 </script>

@@ -1,5 +1,7 @@
 <template>
-  <div class="w-full h-fit flex flex-col shadow-lg bg-bgPrimary pb-[10rem]">
+  <div
+    class="w-full h-fit flex flex-col lg:shadow-lg bg-bgSecondary lg:bg-bgPrimary pb-[10rem]"
+  >
     <NuxtLink
       v-for="(category, index) in categories"
       :key="index"

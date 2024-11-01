@@ -17,6 +17,13 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     currencyKey: process.env.CURRENCY_API_KEY,
+    WC_URL: process.env.WC_URL,
+    WC_CONSUMER_KEY: process.env.WC_CONSUMER_KEY,
+    WC_CONSUMER_SECRET: process.env.WC_CONSUMER_SECRET,
+    WC_API_VERSION: process.env.WC_API_VERSION,
+    public: {
+      BASE_URL: process.env.BASE_URL,
+    },
   },
 
   alias: {

@@ -3,11 +3,13 @@ import WooCommerceRestApi, {
 } from "woocommerce-rest-ts-api";
 
 export default defineEventHandler(async (event) => {
+  const config = useRuntimeConfig();
+
   const api = new WooCommerceRestApi({
-    url: "https://dentechsupply.com",
-    consumerKey: "ck_7900770a51ec9881df3a6243c4e4fc7603dae92f",
-    consumerSecret: "cs_7c84d92e6d36607e8d1b4929a4cc6faeb5e1bc3b",
-    version: "wc/v3",
+    url: config.WC_URL as string,
+    consumerKey: config.WC_CONSUMER_KEY as string,
+    consumerSecret: config.WC_CONSUMER_SECRET as string,
+    version: config.WC_API_VERSION === "wc/v3" ? "wc/v3" : "wc/v3",
   });
 
   const {
