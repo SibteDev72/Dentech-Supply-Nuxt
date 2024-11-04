@@ -5,7 +5,11 @@
   >
     <SlidersSlider
       v-if="categories.length > 0"
-      :data="{ name: 'Product Categories', variant: 'category' }"
+      :data="{
+        name: 'Product Categories',
+        variant: 'category',
+        length: categories.length,
+      }"
     >
       <CardsCategory
         class="keen-slider__slide"
@@ -14,7 +18,9 @@
         :data="item"
       />
     </SlidersSlider>
-    <SlidersSlider :data="{ name: 'Brands', variant: 'brand' }">
+    <SlidersSlider
+      :data="{ name: 'Brands', variant: 'brand', length: brands.length }"
+    >
       <CardsBrand
         class="keen-slider__slide"
         v-for="(item, index) in brands"

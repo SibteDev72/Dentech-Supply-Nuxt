@@ -9,6 +9,7 @@ import {
   getProductDetailsUrl,
   getNewProductsUrl,
   getCategoriesUrl,
+  getRelatedProductsUrl,
 } from "~/utils/getApis";
 
 export const getCategoriesData = async () => {
@@ -79,6 +80,22 @@ export const getProductDetails = async (productId: number) => {
   const config = useRuntimeConfig();
   let source = config.public.BASE_URL as string;
   let api_url: string = getProductDetailsUrl(source, productId);
+  try {
+    const apiResponse = await GET(api_url);
+    if (apiResponse) {
+      const productData = productMapper(apiResponse.data);
+      if (productData) {
+        return productData;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+};
+export const getRelatedProducts = async (categoryId: number) => {
+  const config = useRuntimeConfig();
+  let source = config.public.BASE_URL as string;
+  let api_url: string = getRelatedProductsUrl(source, categoryId);
   try {
     const apiResponse = await GET(api_url);
     if (apiResponse) {

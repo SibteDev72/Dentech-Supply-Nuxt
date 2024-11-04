@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-textPrimary px-6 md:px-8 lg:px-[4rem] flex flex-col mt-[96px] lg:mt-[192px] w-full min-h-[calc(100vh-96px)] lg:min-h-[calc(100vh-192px)]"
+    class="text-textPrimary py-8 px-6 md:px-8 lg:px-[4rem] flex flex-col mt-[96px] lg:mt-[192px] w-full h-fit"
   >
     <div class="hidden lg:flex flex-col py-8">
       <p class="text-3xl font-extrabold">New products</p>
