@@ -80,6 +80,9 @@ module.exports = {
         buttonSecondary: {
           DEFAULT: "#3EBBA4",
         },
+        buttonColor3: {
+          DEFAULT: "#E2E2E2",
+        },
         buttonHover: {
           DEFAULT: "#3EBBA4",
         },

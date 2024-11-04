@@ -122,6 +122,7 @@ watch(
 const fetchNewProducts = async () => {
   const data = await getNewProductsData(4);
   if (data) {
+    //@ts-ignore
     newProductData.value = data;
   }
 };

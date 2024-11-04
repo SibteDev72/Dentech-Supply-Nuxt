@@ -15,11 +15,14 @@
         />
       </div>
       <button
+        v-if="props.data.variant !== 'relatedProduct'"
         @click="
           () => {
             router.push(
               `${
-                props.data.variant === 'brand' ? '/' : '/Shop/equipment_Id=28'
+                props.data.variant === 'brand'
+                  ? '/brands'
+                  : '/Shop/equipment_Id=28'
               }`
             );
           }
@@ -35,7 +38,11 @@
 
     <section class="relative">
       <ChevronLeftIcon
-        v-if="props.data.variant === 'brand'"
+        v-if="
+          props.data.length >= 4 &&
+          (props.data.variant === 'brand' ||
+            props.data.variant === 'relatedProduct')
+        "
         @click="sliderInstance?.prev()"
         class="z-50 cursor-pointer absolute top-1/2 transform -translate-y-1/2 left-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center items-center p-3 w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
       />
@@ -49,7 +56,11 @@
         <slot />
       </article>
       <ChevronRightIcon
-        v-if="props.data.variant === 'brand'"
+        v-if="
+          props.data.length >= 4 &&
+          (props.data.variant === 'brand' ||
+            props.data.variant === 'relatedProduct')
+        "
         @click="sliderInstance?.next()"
         class="z-50 cursor-pointer absolute top-1/2 transform -translate-y-1/2 right-[-30px] hidden bg-buttonSecondary md:flex flex-col justify-center p-3 items-center w-10 lg:w-12 h-10 lg:h-12 rounded-[100%] shadow-xl text-textColor5"
       />
@@ -68,7 +79,7 @@ import KeenSlider from "keen-slider";
 import "keen-slider/keen-slider.min.css";
 
 const props = defineProps<{
-  data: { name: string; variant: string };
+  data: { name: string; variant: string; length: number };
 }>();
 const router = useRouter();
 
@@ -81,30 +92,39 @@ onMounted(() => {
       breakpoints: {
         "(min-width: 300px) and (max-width: 639px)": {
           slides: {
-            perView: props.data.variant === "category" ? 1.7 : 1,
+            perView: props.data.variant === "category" ? 1.7 : 1.05,
             spacing: 10,
           },
         },
         "(min-width: 640px) and (max-width: 767px)": {
           slides: {
-            perView: props.data.variant === "category" ? 2 : 3,
+            perView: props.data.variant === "category" ? 2.05 : 3.05,
             spacing: 10,
           },
         },
         "(min-width: 768px) and (max-width: 1023px)": {
           slides: {
-            perView: props.data.variant === "category" ? 3 : 3,
+            perView: props.data.variant === "category" ? 3.05 : 3.05,
             spacing: 10,
           },
         },
         "(min-width: 1024px)": {
           slides: {
-            perView: props.data.variant === "category" ? 3 : 5,
+            perView:
+              props.data.variant === "category"
+                ? 3.05
+                : props.data.variant === "relatedProduct"
+                ? props.data.length >= 4
+                  ? 4.05
+                  : props.data.length >= 2
+                  ? 2.05
+                  : 1.05
+                : 5.05,
             spacing: 10,
           },
         },
       },
-      loop: true,
+      loop: false,
       mode: "snap",
     });
   }

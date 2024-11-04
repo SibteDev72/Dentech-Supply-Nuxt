@@ -21,6 +21,7 @@ export default defineEventHandler(async (event) => {
     sortBy,
     selectedCategoryId,
     productId,
+    categoryId,
   } = getQuery(event);
 
   try {
@@ -40,6 +41,10 @@ export default defineEventHandler(async (event) => {
     } else if (type === "productDetails") {
       res = await api.get(
         `products/${productId}` as unknown as WooRestApiEndpoint
+      );
+    } else if (type === "relatedDetails") {
+      res = await api.get(
+        `products?category=${categoryId}` as unknown as WooRestApiEndpoint
       );
     }
     return { data: res.data, totalProducts: res.headers["x-wp-total"] };

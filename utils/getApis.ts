@@ -22,3 +22,7 @@ export const getProductDetailsUrl = (source: string, productId: number) => {
   let url = `${source}api/products?type=productDetails&&productId=${productId}`;
   return url;
 };
+export const getRelatedProductsUrl = (source: string, categoryId: number) => {
+  let url = `${source}api/products?type=relatedDetails&&categoryId=${categoryId}`;
+  return url;
+};
