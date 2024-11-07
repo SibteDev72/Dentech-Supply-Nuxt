@@ -11,6 +11,7 @@ export type ProductItem = {
     alt: string;
   }[];
   title: string;
+  slug: string;
   categories: CategoryItem[];
   description: string;
   price: number;

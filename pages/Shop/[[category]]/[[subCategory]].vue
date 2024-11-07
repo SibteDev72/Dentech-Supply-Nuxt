@@ -2,7 +2,8 @@
   <div
     class="text-textPrimary py-8 px-6 md:px-8 lg:px-[4rem] flex flex-col mt-[96px] lg:mt-[192px] w-full h-fit"
   >
-    <div class="hidden lg:flex flex-col py-8">
+    <div class="hidden lg:flex flex-col gap-2 py-8">
+      <Breadcrumbs />
       <p class="text-3xl font-extrabold">New products</p>
     </div>
     <div class="flex flex-row gap-6">
@@ -56,18 +57,6 @@ const fetchProducts = async (categoryID: number) => {
   }
 };
 
-const getIdFromParams = (params: any) => {
-  let id;
-  if (!params.subCategory) {
-    const match = params.category.match(/Id=(\d+)/);
-    id = match ? parseInt(match[1], 10) : 0;
-  } else {
-    const match = params.subCategory.match(/Id=(\d+)/);
-    id = match ? parseInt(match[1], 10) : 0;
-  }
-  return id;
-};
-
 watch(
   [
     () => fiteredRange.value.min,
@@ -96,7 +85,7 @@ watch(
 );
 
 onMounted(() => {
-  selectedCategoryID.value = getIdFromParams(route.params);
+  selectedCategoryID.value = parseInt(route.query.id as string, 10) || 0;
   fetchProducts(selectedCategoryID.value);
 });
 </script>

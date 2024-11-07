@@ -7,10 +7,13 @@
       :key="index"
       :to="{
         name: 'Shop-category-subCategory',
-        params: { category: `${category.slug}_Id=${category.id}` },
+        params: {
+          category: `${category.slug}`,
+        },
+        query: { id: category.id },
       }"
       :class="`flex flex-col border-b-[1px] border-borderSecondary font-bold text-md ${
-        route.params.category === `${category.slug}_Id=${category.id}` &&
+        route.params.category === `${category.slug}` &&
         'bg-bgColor3 text-textColor5 shadow-md shadow-bgColor3'
       }`"
     >
@@ -18,11 +21,10 @@
         <p>{{ category.title }}</p>
         <ChevronDownIcon
           :class="`w-5 text-textColor4 ${
-            route.params.category === `${category.slug}_Id=${category.id}` &&
-            'text-textColor5'
+            route.params.category === `${category.slug}` && 'text-textColor5'
           } transition-all duration-300 ${
             subCategoryStatus === true &&
-            route.params.category === `${category.slug}_Id=${category.id}` &&
+            route.params.category === `${category.slug}` &&
             'rotate-180'
           }`"
           @click="
@@ -32,7 +34,7 @@
           "
           v-if="
             category.subCategory?.length !== 0 &&
-            route.params.category === `${category.slug}_Id=${category.id}`
+            route.params.category === `${category.slug}`
           "
         />
       </div>
@@ -49,7 +51,7 @@
         <div
           v-show="
             subCategoryStatus === true &&
-            route.params.category === `${category.slug}_Id=${category.id}`
+            route.params.category === `${category.slug}`
           "
         >
           <NuxtLink
@@ -58,16 +60,16 @@
             :to="{
               name: 'Shop-category-subCategory',
               params: {
-                category: `${category.slug}_Id=${category.id}`,
-                subCategory: `${subCategory.slug}_Id=${subCategory.id}`,
+                category: `${category.slug}`,
+                subCategory: `${subCategory.slug}`,
               },
+              query: { id: subCategory.id },
             }"
             :class="`flex flex-col px-1 py-3 bg-bgPrimary text-textPrimary`"
           >
             <p
               :class="`${
-                route.params.subCategory ===
-                  `${subCategory.slug}_Id=${subCategory.id}` &&
+                route.params.subCategory === `${subCategory.slug}` &&
                 'text-textColor4'
               }`"
             >

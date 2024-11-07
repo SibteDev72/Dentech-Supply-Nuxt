@@ -101,7 +101,7 @@ const handleSorting = (value: string) => {
 onMounted(() => {
   (itemsPerPage.value = 6), (sotingValue.value = "date");
   categories.value.map((category) => {
-    if (`${category.slug}_Id=${category.id}` === route.params.category) {
+    if (`${category.slug}` === route.params.category) {
       selectedCategory.value = category.title;
     }
   });

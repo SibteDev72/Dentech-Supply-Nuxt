@@ -11,7 +11,11 @@
               :class="`${
                 path.name === link.name && 'text-textColor4'
               } capitalize text-sm cursor-pointer`"
-              :to="link.path"
+              :to="
+                link.query
+                  ? { path: link.path, query: { id: link.query } }
+                  : { path: link.path }
+              "
             >
               {{ link.title }}
             </NuxtLink>

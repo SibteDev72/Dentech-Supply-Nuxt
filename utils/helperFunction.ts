@@ -68,6 +68,7 @@ export const productMapper = (
       id: product.id,
       imgSrc: product.images,
       title: product.name,
+      slug: product.slug,
       price: product.price,
       description: product.description,
       categories: productCategories,
@@ -89,5 +90,78 @@ export const getNumberOfPages = (totalItems: number, itemsPerPage: number) => {
     pagesArray.value = [1, 2];
   } else {
     pagesArray.value = Array.from({ length: numberOfPages }, (_, i) => i + 1);
+  }
+};
+
+export const getBreadcrumbs = (
+  previousPath: any,
+  currentPath: any,
+  previousParams: any,
+  currentParams: any,
+  currentQueryID: any,
+  previousQueryID: any,
+  page: string
+) => {
+  const breadcrumbs = useBreadcrumbs();
+
+  if (
+    (currentPath === "Shop-category-subCategory" && previousPath === "index") ||
+    (previousPath === "Product-product" && page === "shop")
+  ) {
+    breadcrumbs.value[1] = {
+      name: "equipment",
+      path: `/Shop/${currentParams.category}?id=${currentQueryID}`,
+    };
+    (breadcrumbs.value[2] = { name: "", path: "" }),
+      (breadcrumbs.value[3] = { name: "", path: "" });
+  } else if (
+    currentPath === "Shop-category-subCategory" &&
+    currentParams.category !== "" &&
+    page === "shop"
+  ) {
+    breadcrumbs.value[1] = {
+      name: currentParams.category,
+      path: `/Shop/${currentParams.category}?id=${currentQueryID}`,
+    };
+    if (currentParams.subCategory !== "") {
+      breadcrumbs.value[2] = {
+        name: currentParams.subCategory,
+        path: `/Shop/${currentParams.category}/${currentParams.subCategory}?id=${currentQueryID}`,
+      };
+    } else {
+      breadcrumbs.value[2] = { name: "", path: "" };
+    }
+  }
+  if (
+    currentPath === "Product-product" &&
+    previousPath === "index" &&
+    page === "product"
+  ) {
+    breadcrumbs.value[1] = {
+      name: "shop",
+      path: `/Shop/equipment?id=28`,
+    };
+    breadcrumbs.value[2] = { name: "", path: "" };
+    breadcrumbs.value[3] = {
+      name: currentParams.product,
+      path: `/Product/${currentParams.product}?id=${currentQueryID}`,
+    };
+  } else if (
+    currentPath === "Product-product" &&
+    previousPath === "Shop-category-subCategory" &&
+    page === "product"
+  ) {
+    breadcrumbs.value[1] = {
+      name: previousParams.category,
+      path: `/Shop/${previousParams.category}?id=${previousQueryID}`,
+    };
+    breadcrumbs.value[2] = {
+      name: previousParams.subCategory,
+      path: `/Shop/${previousParams.category}/${previousParams.subCategory}?id=${previousQueryID}`,
+    };
+    breadcrumbs.value[3] = {
+      name: currentParams.product,
+      path: `/Product/${currentParams.product}?id=${currentQueryID}`,
+    };
   }
 };
