@@ -50,7 +50,7 @@
         <button
           @click="
             () => {
-              router.push('/Shop/equipment_Id=28');
+              router.push({ path: '/Shop/equipment', query: { id: 28 } });
             }
           "
           class="group flex flex-row items-center gap-4 shadow-lg font-extrabold px-4 py-1 text-sm md:py-2 rounded-full bg-buttonPrimary border-2 border-borderPrimary hover:text-textColor5 hover:bg-buttonHover transition-all duration-300"

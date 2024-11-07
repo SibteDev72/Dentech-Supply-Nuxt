@@ -3,4 +3,10 @@ export type navLinkInterface = {
   name: string;
   title: string;
   path: string;
+  query?: number;
+};
+
+export type breadcrumbs = {
+  name: string;
+  path: string;
 };

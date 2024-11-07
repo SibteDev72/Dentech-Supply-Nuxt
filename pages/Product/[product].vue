@@ -2,6 +2,7 @@
   <div
     class="mt-[96px] lg:mt-[192px] w-full h-fit py-8 flex flex-col gap-[6rem] px-6 md:px-8 lg:px-[4rem]"
   >
+    <Breadcrumbs />
     <SkeletonProduct v-if="!!loadingProduct" />
     <SkeletonRelatedProducts v-if="!!loadingProduct" />
     <section v-if="productData" class="flex flex-col lg:flex-row gap-4">
@@ -28,7 +29,7 @@
           />
         </div>
       </section>
-      <section class="w-full lg:w-[70%] flex flex-col gap-4">
+      <section class="w-full lg:w-[70%] lg:pl-12 flex flex-col gap-4">
         <p class="text-lg lg:text-xl font-extrabold">{{ productData.title }}</p>
         <p class="text-sm lg:text-lg text-textColor4 font-extrabold">
           Rs{{ productData.price }}.00
@@ -113,7 +114,7 @@ const handleCounter = (value: number) => {
 };
 
 onMounted(() => {
-  // @ts-ignore
-  fetchProductDetails(route.params.productId);
+  //@ts-ignore
+  fetchProductDetails(route.query.id);
 });
 </script>
