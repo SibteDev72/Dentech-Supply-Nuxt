@@ -163,5 +163,22 @@ export const getBreadcrumbs = (
       name: currentParams.product,
       path: `/Product/${currentParams.product}?id=${currentQueryID}`,
     };
+  } else if (
+    currentPath === "Shop-category-subCategory" &&
+    previousPath === "Product-product" &&
+    page === "shop"
+  ) {
+    if (currentParams.category !== "") {
+      breadcrumbs.value[1] = {
+        name: currentParams.category,
+        path: `/Shop/${currentParams.category}?id=${currentQueryID}`,
+      };
+    }
+    if (currentParams.subCategory !== "") {
+      breadcrumbs.value[2] = {
+        name: currentParams.subCategory,
+        path: `/Shop/${currentParams.category}/${currentParams.subCategory}?id=${currentQueryID}`,
+      };
+    }
   }
 };
